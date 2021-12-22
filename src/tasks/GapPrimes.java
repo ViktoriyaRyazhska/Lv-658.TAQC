@@ -1,8 +1,11 @@
 package tasks;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class GapPrimes {
 
@@ -75,17 +78,22 @@ public class GapPrimes {
 
 
 
-    public static void task(Scanner scanner) {
+    public static void task(BufferedReader reader) throws IOException {
         System.out.print("Enter from-number ( > 2 )\n> ");
-        int from = scanner.nextInt();
+        int from = Integer.parseInt(reader.readLine());
         System.out.print("Enter to-number ( >= from-number )\n> ");
-        int to = scanner.nextInt();
+        int to = Integer.parseInt(reader.readLine());
         System.out.print("Enter the gap ( >= 2)\n> ");
-        int gap = scanner.nextInt();
+        int gap = Integer.parseInt(reader.readLine());
         if (validate(from, to, gap)) {
             output(from, to, gap);
         } else {
-            task(scanner);
+            task(reader);
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        task(reader);
     }
 }
