@@ -91,9 +91,4 @@ public class GapPrimes {
             task(reader);
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        task(reader);
-    }
 }
