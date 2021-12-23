@@ -1,21 +1,7 @@
-import java.util.Scanner;
+package utill;
+import static utill.ReadFromConsole.getTaskNumber;
 
 public class MainMenu {
-    public static int getTaskNumber()
-    {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Input number of task(Input 0 to exit): ");
-        int number ;
-        try {
-            number = Integer.parseInt(in.nextLine());
-        }
-        catch (NumberFormatException e)
-        {
-            System.out.println(e.getMessage() + "   Enter only numbers!");
-            number = getTaskNumber();
-        }
-        return number;
-    }
 
     public static void main(String[] args) {
         int numb;
