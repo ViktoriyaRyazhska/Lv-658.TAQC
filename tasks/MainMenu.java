@@ -5,7 +5,7 @@ public class MainMenu {
     {
         Scanner in = new Scanner(System.in);
         System.out.print("Input number of task(Input 0 to exit): ");
-        int number = 0;
+        int number ;
         try {
             number = Integer.parseInt(in.nextLine());
         }
@@ -23,16 +23,12 @@ public class MainMenu {
             numb = getTaskNumber();
 
             switch (numb) {
-                case (0):
-                    System.out.println("The End! Thank You!");
-                    break;
-                case (1):
-                    System.out.println("Task 1");
-                    break;
-
-                default:
-                    System.out.println("Incorrect input!");
-                    break;
+                case (0) -> TasksDescriptions.EXIT.getDescription();
+                case (1) -> TasksDescriptions.FIRST.getDescription();
+                case (2) -> TasksDescriptions.SECOND.getDescription();
+                case (3) -> TasksDescriptions.THIRD.getDescription();
+                case (4) -> TasksDescriptions.FOURTH.getDescription();
+                default -> System.out.println("Incorrect input!");
             }
 
         }while (numb !=0);
