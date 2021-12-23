@@ -15,13 +15,15 @@ public class KeepHydrated {
         System.out.println("Please, enter the time:");
         try {
             double time = Float.parseFloat(br.readLine());
+            if (time < 0 ){
+                throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
+            }
             int litres = numberOfLitres(time);
             System.out.printf("time = %f ----> litres = %d", time, litres);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.out.println("You are expected to enter time with a number.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
-
 }
