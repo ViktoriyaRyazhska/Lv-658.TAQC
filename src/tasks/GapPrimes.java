@@ -78,7 +78,7 @@ public class GapPrimes {
 
 
 
-    public static void task(BufferedReader reader) throws IOException {
+    public static void task(BufferedReader reader) throws IOException, NumberFormatException {
         System.out.print("Enter from-number ( > 2 )\n> ");
         int from = Integer.parseInt(reader.readLine());
         System.out.print("Enter to-number ( >= from-number )\n> ");
