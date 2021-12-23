@@ -1,0 +1,2 @@
+public class FloatingPointApproximation {
+}
