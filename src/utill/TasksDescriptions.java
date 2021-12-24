@@ -1,3 +1,5 @@
+package utill;
+
 public enum TasksDescriptions {
     FIRST("Nathan loves cycling.\n "+
             "Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.\n" +
