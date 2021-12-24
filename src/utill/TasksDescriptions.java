@@ -12,7 +12,8 @@ public enum TasksDescriptions {
     THIRD("Sometimes, I want to quickly be able to convert miles per imperial gallon into kilometers per liter.\n" +
             "Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input).\n" +
             "Make sure to round off the result to two decimal points. If the answer ends with a 0, it should be rounded off without the 0. So instead of 5.50, we should get 5.5.\n" +
-            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres"),
+            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n"+
+            "Please, enter miles per gallon to convert into kilometers per liter : "),
     FOURTH("#To square(root) or not to square(root)\n" +
             "Write a method, that will get an integer array as parameter and will process every number from this array.\n" +
             "Return a new array with processing every number of the input-array like this:\n" +
