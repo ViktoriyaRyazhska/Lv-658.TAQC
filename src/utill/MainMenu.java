@@ -1,5 +1,6 @@
 package utill;
 
+import tasks.Seventh;
 import tasks.Third;
 
 public class MainMenu {
@@ -19,6 +20,12 @@ public class MainMenu {
                     System.out.println(Third.mpgToKPM(mpg));
                 }
                 case (4) -> TasksDescriptions.FOURTH.getDescription();
+                case (7) -> {
+                    TasksDescriptions.SEVENTH.getDescription();
+                double n = ReadFromConsole.getFloatNumber();
+                    System.out.println(Seventh.am_i_wilson(n)?"Yes":"No");
+                }
+
                 default -> System.out.println("Incorrect input!");
             }
 
