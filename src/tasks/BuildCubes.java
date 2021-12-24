@@ -32,9 +32,4 @@ public class BuildCubes {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        task(br);
-    }
 }
