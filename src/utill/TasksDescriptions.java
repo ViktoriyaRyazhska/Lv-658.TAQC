@@ -22,6 +22,10 @@ public enum TasksDescriptions {
             "The input array will always contain only positive numbers and will never be empty or null.\n" +
             "\n" +
             "The input array should not be modified!"),
+    SEVENTH("Wilson primes satisfy the following condition. Let P represent a prime number.\n" +
+            "Then ((P-1)! + 1) / (P * P) should give a whole number.\n" +
+            "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n"+
+            "Please, enter number, which you want to check: "),
     EXIT("The End! Thank You!");
     private String description;
     private TasksDescriptions( String description)
