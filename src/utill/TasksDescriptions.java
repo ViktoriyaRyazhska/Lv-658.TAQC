@@ -26,6 +26,16 @@ public enum TasksDescriptions {
             "Then ((P-1)! + 1) / (P * P) should give a whole number.\n" +
             "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n"+
             "Please, enter number, which you want to check: "),
+    ELEVENTH("Your task is to write a function which returns the sum of following series upto nth term(parameter).\n" +
+            "Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...\n" +
+            "Rules:\n" +
+            "You need to round the answer to 2 decimal places and return it as String.\n" +
+            "If the given value is 0 then it should return 0.00\n" +
+            "You will only be given Natural Numbers as arguments.\n" +
+            "Examples:(Input --> Output)\n" +
+            "1 --> 1 --> \"1.00\"\n" +
+            "2 --> 1 + 1/4 --> \"1.25\"\n" +
+            "5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> \"1.57\""),
     EXIT("The End! Thank You!");
     private String description;
     private TasksDescriptions( String description)

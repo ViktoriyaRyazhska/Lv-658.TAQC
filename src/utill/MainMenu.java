@@ -25,6 +25,9 @@ public class MainMenu {
                 double n = ReadFromConsole.getFloatNumber();
                     System.out.println(Seventh.am_i_wilson(n)?"Yes":"No");
                 }
+                case(11)->{
+                    TasksDescriptions.SEVENTH.getDescription();
+                }
 
                 default -> System.out.println("Incorrect input!");
             }
