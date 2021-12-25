@@ -1,2 +1,4 @@
-package tasks;public class Fourteenth {
+package tasks;
+
+public class Fourteenth {
 }

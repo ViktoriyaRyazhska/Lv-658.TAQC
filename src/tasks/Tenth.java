@@ -1,2 +1,4 @@
-package tasks;public class Tenth {
+package tasks;
+
+public class Tenth {
 }

@@ -2,6 +2,7 @@ package utill;
 
 import tasks.Seventh;
 import tasks.Third;
+import tasks.TwentySecond;
 
 public class MainMenu {
 
@@ -22,13 +23,16 @@ public class MainMenu {
                 case (4) -> TasksDescriptions.FOURTH.getDescription();
                 case (7) -> {
                     TasksDescriptions.SEVENTH.getDescription();
-                double n = ReadFromConsole.getFloatNumber();
-                    System.out.println(Seventh.am_i_wilson(n)?"Yes":"No");
+                    double n = ReadFromConsole.getFloatNumber();
+                    System.out.println(Seventh.am_i_wilson(n) ? "Yes" : "No");
                 }
-
+                case (22) -> {
+//                    TasksDescriptions.
+                    System.out.println(TwentySecond.perimeter(ReadFromConsole.getIntNumber()));
+                }
                 default -> System.out.println("Incorrect input!");
             }
 
-        }while (numb !=0);
+        } while (numb != 0);
     }
 }
