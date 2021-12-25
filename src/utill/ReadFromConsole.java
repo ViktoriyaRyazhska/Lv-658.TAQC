@@ -26,6 +26,7 @@ public class ReadFromConsole {
     public static float getFloatNumber()
     {
         float number ;
+
         try {
             number = Float.parseFloat(reader.readLine());
         }
