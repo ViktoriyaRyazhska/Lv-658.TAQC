@@ -11,7 +11,7 @@ public class KeepHydrated {
         return litres;
     }
 
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException{
         System.out.println("Please, enter the time:");
         try {
             double time = Float.parseFloat(br.readLine());
@@ -19,7 +19,7 @@ public class KeepHydrated {
                 throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
             }
             int litres = numberOfLitres(time);
-            System.out.printf("time = %f ----> litres = %d", time, litres);
+            System.out.printf("time = %.2f ----> litres = %d", time, litres);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
