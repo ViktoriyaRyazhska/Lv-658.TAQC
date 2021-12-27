@@ -41,7 +41,6 @@ public class ToSquareRootOrNoToSquare {
         return arrayOfInt;
     }
 
-
     public static void runTask4(BufferedReader reader) throws IOException {
         conditionOfTask();
         try {
