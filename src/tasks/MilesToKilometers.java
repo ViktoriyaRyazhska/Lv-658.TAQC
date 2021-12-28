@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 public class MilesToKilometers {
 
     static final float kmPerMile = 1.609344f;
-    static final float litresPerGallon = 4.54609188f;
+    static final float literToGallon = 4.54609188f;
 
     public static float mpgToKPL(float mpg) {
         float kpl;
@@ -29,7 +29,7 @@ public class MilesToKilometers {
             if (numberMPG < 0) {
                 throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
             }
-            double numberLPK = mpgToKPL(numberMPG);
+            float numberLPK = mpgToKPL(numberMPG);
             System.out.println("Miles per Gallon = " + roundFloat(numberMPG,2));
             System.out.println("Kilometers per Liter = " + roundFloat(numberLPK,2));
         } catch (IOException e) {
