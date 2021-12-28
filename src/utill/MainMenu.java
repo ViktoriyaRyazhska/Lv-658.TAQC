@@ -1,8 +1,5 @@
 package utill;
-import tasks.Fifth;
-import tasks.Seventh;
-import tasks.Third;
-import tasks.First;
+import tasks.*;
 
 import java.util.Arrays;
 
@@ -46,6 +43,8 @@ public class MainMenu {
                 }
                 case(11)->{
                     TasksDescriptions.SEVENTH.getDescription();
+                    int n = ReadFromConsole.getIntNumber();
+                    System.out.println(Eleventh.seriesSum(n));
                 }
 
                 default -> System.out.println("Incorrect input!");
