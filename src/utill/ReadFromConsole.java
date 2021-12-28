@@ -8,43 +8,35 @@ public class ReadFromConsole {
     static BufferedReader reader = new BufferedReader(
             new InputStreamReader(System.in));
 
-    public static int getTaskNumber()
-    {
+    public static int getTaskNumber() {
         System.out.print("Input number of task(Input 0 to exit): ");
-        int number ;
+        int number;
         try {
             number = Integer.parseInt(reader.readLine());
-        }
-        catch (NumberFormatException | IOException e)
-        {
+        } catch (NumberFormatException | IOException e) {
             System.out.println(e.getMessage() + "   Enter only numbers!");
             number = getIntNumber();
         }
         return number;
     }
 
-    public static float getFloatNumber()
-    {
-        float number ;
+    public static float getFloatNumber() {
+        float number;
         try {
             number = Float.parseFloat(reader.readLine());
-        }
-        catch (NumberFormatException | IOException e)
-        {
+        } catch (NumberFormatException | IOException e) {
             System.out.println(e.getMessage() + "   Enter only numbers!");
             number = getFloatNumber();
         }
         return number;
     }
-    public static int getIntNumber()
-    {
+
+    public static int getIntNumber() {
         System.out.print("Input number : ");
-        int number ;
+        int number;
         try {
             number = Integer.parseInt(reader.readLine());
-        }
-        catch (NumberFormatException | IOException e)
-        {
+        } catch (NumberFormatException | IOException e) {
             System.out.println(e.getMessage() + "   Enter only numbers!");
             number = getIntNumber();
         }
