@@ -1,5 +1,4 @@
 package tasks;
-
 import java.text.DecimalFormat;
 
 public class Eleventh {

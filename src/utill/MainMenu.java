@@ -1,4 +1,5 @@
 package utill;
+
 import tasks.*;
 
 import java.util.Arrays;
@@ -14,7 +15,8 @@ public class MainMenu {
 
             switch (numb) {
                 case (0) -> TasksDescriptions.EXIT.getDescription();
-                case (1) -> {TasksDescriptions.FIRST.getDescription();
+                case (1) -> {
+                    TasksDescriptions.FIRST.getDescription();
                     float time = ReadFromConsole.getFloatNumber();
                     System.out.println(First.count(time));
                 }
@@ -31,17 +33,17 @@ public class MainMenu {
                     int arrayLength = ReadFromConsole.getIntNumber();
                     int[] array = new int[arrayLength];
                     for (int i = 0; i < arrayLength; i++) {
-                        System.out.println("Input value "+ i);
+                        System.out.println("Input value " + i);
                         array[i] = ReadFromConsole.getIntNumber();
                     }
                     System.out.println(Arrays.toString(count(array)));
                 }
                 case (7) -> {
                     TasksDescriptions.SEVENTH.getDescription();
-                double n = ReadFromConsole.getFloatNumber();
-                    System.out.println(Seventh.am_i_wilson(n)?"Yes":"No");
+                    double n = ReadFromConsole.getFloatNumber();
+                    System.out.println(Seventh.am_i_wilson(n) ? "Yes" : "No");
                 }
-                case(11)->{
+                case (11) -> {
                     TasksDescriptions.SEVENTH.getDescription();
                     int n = ReadFromConsole.getIntNumber();
                     System.out.println(Eleventh.seriesSum(n));
@@ -50,6 +52,6 @@ public class MainMenu {
                 default -> System.out.println("Incorrect input!");
             }
 
-        }while (numb !=0);
+        } while (numb != 0);
     }
 }

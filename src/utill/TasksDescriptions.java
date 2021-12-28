@@ -1,10 +1,10 @@
 package utill;
 
 public enum TasksDescriptions {
-    FIRST("Nathan loves cycling.\n "+
+    FIRST("Nathan loves cycling.\n " +
             "Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.\n" +
             "You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.\n" +
-            "For example:\n"+
+            "For example:\n" +
             "time = 3 ----> litres = 1\n" +
             "time = 6.7---> litres = 3\n" +
             "time = 11.8--> litres = 5"),
@@ -12,7 +12,7 @@ public enum TasksDescriptions {
     THIRD("Sometimes, I want to quickly be able to convert miles per imperial gallon into kilometers per liter.\n" +
             "Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input).\n" +
             "Make sure to round off the result to two decimal points. If the answer ends with a 0, it should be rounded off without the 0. So instead of 5.50, we should get 5.5.\n" +
-            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n"+
+            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n" +
             "Please, enter miles per gallon to convert into kilometers per liter : "),
     FOURTH("#To square(root) or not to square(root)\n" +
             "Write a method, that will get an integer array as parameter and will process every number from this array.\n" +
@@ -26,13 +26,13 @@ public enum TasksDescriptions {
             "\n" +
             "Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.\n" +
             "\n" +
-            "If the input array is empty or null, return an empty array.\n"+
+            "If the input array is empty or null, return an empty array.\n" +
             "\n" +
             "Example\n" +
             "For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65]."),
     SEVENTH("Wilson primes satisfy the following condition. Let P represent a prime number.\n" +
             "Then ((P-1)! + 1) / (P * P) should give a whole number.\n" +
-            "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n"+
+            "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n" +
             "Please, enter number, which you want to check: "),
     ELEVENTH("Your task is to write a function which returns the sum of following series upto nth term(parameter).\n" +
             "Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...\n" +
@@ -46,11 +46,12 @@ public enum TasksDescriptions {
             "5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> \"1.57\""),
     EXIT("The End! Thank You!");
     private String description;
-    private TasksDescriptions( String description)
-    {
+
+    private TasksDescriptions(String description) {
         this.description = description;
     }
 
     public void getDescription() {
-        System.out.println(description);    }
+        System.out.println(description);
+    }
 }
