@@ -8,7 +8,7 @@ public class ReadFromConsole {
     static BufferedReader reader = new BufferedReader(
             new InputStreamReader(System.in));
 
-    public static int getIntNumber()
+    public static int getTaskNumber()
     {
         System.out.print("Input number of task(Input 0 to exit): ");
         int number ;
@@ -33,6 +33,20 @@ public class ReadFromConsole {
         {
             System.out.println(e.getMessage() + "   Enter only numbers!");
             number = getFloatNumber();
+        }
+        return number;
+    }
+    public static int getIntNumber()
+    {
+        System.out.print("Input number : ");
+        int number ;
+        try {
+            number = Integer.parseInt(reader.readLine());
+        }
+        catch (NumberFormatException | IOException e)
+        {
+            System.out.println(e.getMessage() + "   Enter only numbers!");
+            number = getIntNumber();
         }
         return number;
     }

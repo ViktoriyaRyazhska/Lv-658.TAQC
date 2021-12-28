@@ -1,18 +1,26 @@
 package utill;
-
+import tasks.Fifth;
 import tasks.Seventh;
 import tasks.Third;
+import tasks.First;
+
+import java.util.Arrays;
+
+import static tasks.Fifth.count;
 
 public class MainMenu {
 
     public static void main(String[] args) {
         int numb;
         do {
-            numb = ReadFromConsole.getIntNumber();
+            numb = ReadFromConsole.getTaskNumber();
 
             switch (numb) {
                 case (0) -> TasksDescriptions.EXIT.getDescription();
-                case (1) -> TasksDescriptions.FIRST.getDescription();
+                case (1) -> {TasksDescriptions.FIRST.getDescription();
+                    float time = ReadFromConsole.getFloatNumber();
+                    System.out.println(First.count(time));
+                }
                 case (2) -> TasksDescriptions.SECOND.getDescription();
                 case (3) -> {
                     TasksDescriptions.THIRD.getDescription();
@@ -20,6 +28,17 @@ public class MainMenu {
                     System.out.println(Third.mpgToKPM(mpg));
                 }
                 case (4) -> TasksDescriptions.FOURTH.getDescription();
+                case (5) -> {
+                    TasksDescriptions.FIFTH.getDescription();
+                    System.out.println("Input array length");
+                    int arrayLength = ReadFromConsole.getIntNumber();
+                    int[] array = new int[arrayLength];
+                    for (int i = 0; i < arrayLength; i++) {
+                        System.out.println("Input value "+ i);
+                        array[i] = ReadFromConsole.getIntNumber();
+                    }
+                    System.out.println(Arrays.toString(count(array)));
+                }
                 case (7) -> {
                     TasksDescriptions.SEVENTH.getDescription();
                 double n = ReadFromConsole.getFloatNumber();
