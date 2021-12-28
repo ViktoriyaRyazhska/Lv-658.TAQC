@@ -1,4 +1,6 @@
 package tasks;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FindNumbersWhichAreDivisibleByGivenNumber {
     public static void main(String Arr[]) {
