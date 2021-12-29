@@ -5,7 +5,6 @@ import tasks.*;
 import java.util.Arrays;
 
 import static tasks.Fifth.count;
-import static tasks.Nineteenth.minUmbrellas;
 
 public class MainMenu {
 
@@ -55,7 +54,12 @@ public class MainMenu {
                 case (19) -> {
                     TasksDescriptions.NINETEENTH.getDescription();
                     System.out.println("Count of needed umbrellas is "
-                            + minUmbrellas(ReadFromConsole.getArrayOfWeather()));
+                            + Nineteenth.minUmbrellas(ReadFromConsole.getArrayOfWeather()));
+                }
+                case (23) -> {
+                    TasksDescriptions.TWENTYTHIRD.getDescription();
+                    System.out.println("Enter double m: ");
+                    System.out.println(Twentythird.solve(ReadFromConsole.getDoubleNumber()));
                 }
 
                 default -> System.out.println("Incorrect input!");

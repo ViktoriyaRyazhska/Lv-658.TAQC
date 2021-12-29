@@ -45,20 +45,27 @@ public enum TasksDescriptions {
             "2 --> 1 + 1/4 --> \"1.25\"\n" +
             "5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> \"1.57\""),
     FIFTEENTH("This function involves the subtraction of a pair of similar numbers when x is near 0 \n"
-            +"and the results are significantly erroneous in this region.\n"
+            + "and the results are significantly erroneous in this region.\n"
             + " Using pow instead of sqrt doesn't give better results.\n"
             + "A \"good\" answer is 4.99999999999999875... * 1e-16.\n" +
             "Can you modify f(x) to give a good approximation of f(x) in the neighborhood of 0?"),
     NINETEENTH("Each morning a man walks to work, and each afternoon he walks back home.\n"
             + "If it is raining in the morning and he has an umbrella at home, he takes an umbrella for the journey\n"
-            +"so he doesn't get wet, and stores it at work. Likewise, if it is raining in the afternoon \n"
-            +"and he has an umbrella at work, he takes an umbrella for the journey home.\n"
+            + "so he doesn't get wet, and stores it at work. Likewise, if it is raining in the afternoon \n"
+            + "and he has an umbrella at work, he takes an umbrella for the journey home.\n"
             + "Given an array of the weather conditions, your task is to work out the minimum number of umbrellas he needs\n"
-            +"to start with in order that he never gets wet. He can start with some umbrellas at home and some at work,\n"
-            +"but the output is a single integer, the minimum total number.\n"
+            + "to start with in order that he never gets wet. He can start with some umbrellas at home and some at work,\n"
+            + "but the output is a single integer, the minimum total number.\n"
             + "The input is an array/list of consecutive half-day weather forecasts. So, e.g. the first value is the 1st day's morning weather\n"
-            +"and the second value is the 1st day's afternoon weather. \n"
-            +"The options are \"clear\", \"sunny\", \"cloudy\", \"rainy\", \"windy\" or \"thunderstorms\"."),
+            + "and the second value is the 1st day's afternoon weather. \n"
+            + "The options are \"clear\", \"sunny\", \"cloudy\", \"rainy\", \"windy\" or \"thunderstorms\"."),
+    TWENTYTHIRD("Consider the sequence U(n, x) = x + 2x**2 + 3x**3 + .. + nx**n where x is a real number and n a positive integer.\n" +
+            "When n goes to infinity and x has a correct value (ie x is in its domain of convergence D), U(n, x) goes to a finite limit m depending on x.\n" +
+            "Usually given x we try to find m. Here we will try to find x (x real, 0 < x < 1) when m is given (m real, m > 0).\n" +
+            "Let us call solve the function solve(m) which returns x such as U(n, x) goes to m when n goes to infinity.\n" +
+            "Examples:\n" +
+            "solve(2.0) returns 0.5 since U(n, 0.5) goes to 2 when n goes to infinity.\n" +
+            "solve(8.0) returns 0.7034648345913732 since U(n, 0.7034648345913732) goes to 8 when n goes to infinity."),
     EXIT("The End! Thank You!");
     private String description;
 

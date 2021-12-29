@@ -21,12 +21,10 @@ public class Seventh {
     }
 
     public static boolean am_i_wilson(double n) {
-        if(isPrime((int)n))
-        {
-            double check = factorialUsingStreams((int)(n-1))/Math.pow(n,2);
-            return Math.ceil(check) != Math.floor(check) &&Math.floor(check)!=0;
-        }
-        else
+        if (isPrime((int) n)) {
+            double check = factorialUsingStreams((int) (n - 1)) / Math.pow(n, 2);
+            return Math.ceil(check) != Math.floor(check) && Math.floor(check) != 0;
+        } else
             return false;
     }
 }
