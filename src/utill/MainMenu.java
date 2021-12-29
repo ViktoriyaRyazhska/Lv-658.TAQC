@@ -48,6 +48,9 @@ public class MainMenu {
                 }
                 case (15) -> {
                     TasksDescriptions.FIFTEENTH.getDescription();
+                    System.out.println("Enter double number with exponential part(e.g 1e-16): ");
+                    double number = ReadFromConsole.getDoubleNumber();
+                    Fifteenth.f(number);
                 }
                 case (19) -> {
                     TasksDescriptions.NINETEENTH.getDescription();

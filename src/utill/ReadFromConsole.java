@@ -73,4 +73,15 @@ public class ReadFromConsole {
         }
         return weather;
     }
+     public static double getDoubleNumber()
+     {
+         double number;
+         try {
+             number = Double.parseDouble(reader.readLine());
+         } catch (NumberFormatException | IOException e) {
+             System.out.println(e.getMessage() + "   Enter only double numbers or exponential view!");
+             number = getDoubleNumber();
+         }
+         return number;
+     }
 }
