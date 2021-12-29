@@ -24,7 +24,7 @@ public class MainMenu {
                 case (2) -> TasksDescriptions.SECOND.getDescription();
                 case (3) -> {
                     TasksDescriptions.THIRD.getDescription();
-                    System.out.println(Third.mpgToKPM(mpg));
+                    System.out.println(Third.mpgToKPM(ReadFromConsole.getFloatNumber()));
                 }
                 case (4) -> TasksDescriptions.FOURTH.getDescription();
                 case (5) -> {
