@@ -44,6 +44,11 @@ public enum TasksDescriptions {
             "1 --> 1 --> \"1.00\"\n" +
             "2 --> 1 + 1/4 --> \"1.25\"\n" +
             "5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> \"1.57\""),
+    FIFTEENTH("This function involves the subtraction of a pair of similar numbers when x is near 0 \n"
+            +"and the results are significantly erroneous in this region.\n"
+            + " Using pow instead of sqrt doesn't give better results.\n"
+            + "A \"good\" answer is 4.99999999999999875... * 1e-16.\n" +
+            "Can you modify f(x) to give a good approximation of f(x) in the neighborhood of 0?"),
     EXIT("The End! Thank You!");
     private String description;
 

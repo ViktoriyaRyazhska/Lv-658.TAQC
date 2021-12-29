@@ -44,9 +44,13 @@ public class MainMenu {
                     System.out.println(Seventh.am_i_wilson(n) ? "Yes" : "No");
                 }
                 case (11) -> {
-                    TasksDescriptions.SEVENTH.getDescription();
+                    TasksDescriptions.ELEVENTH.getDescription();
                     int n = ReadFromConsole.getIntNumber();
                     System.out.println(Eleventh.seriesSum(n));
+                }
+                case(15)-> {
+                    TasksDescriptions.FIFTEENTH.getDescription();
+
                 }
 
                 default -> System.out.println("Incorrect input!");
