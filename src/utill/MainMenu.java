@@ -48,9 +48,11 @@ public class MainMenu {
                     int n = ReadFromConsole.getIntNumber();
                     System.out.println(Eleventh.seriesSum(n));
                 }
-                case(15)-> {
+                case (15) -> {
                     TasksDescriptions.FIFTEENTH.getDescription();
-
+                    System.out.println("Enter double number with exponential part(e.g 1e-16): ");
+                    double number = ReadFromConsole.getDoubleNumber();
+                    Fifteenth.f(number);
                 }
 
                 default -> System.out.println("Incorrect input!");
