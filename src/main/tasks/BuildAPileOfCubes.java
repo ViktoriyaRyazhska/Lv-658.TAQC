@@ -16,6 +16,9 @@ public class BuildAPileOfCubes {
     }
 
     public static void main(String args[]){
-        findNb(10);
-        System.out.println(findNb(1071225));
+        System.out.println("enter you volume :");
+        Scanner Scan = new Scanner(System.in);
+        int input1 = Scan.nextInt();
+//        findNb(10);
+        System.out.println(findNb(input1));
     }
