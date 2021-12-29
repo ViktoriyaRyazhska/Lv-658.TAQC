@@ -49,6 +49,16 @@ public enum TasksDescriptions {
             + " Using pow instead of sqrt doesn't give better results.\n"
             + "A \"good\" answer is 4.99999999999999875... * 1e-16.\n" +
             "Can you modify f(x) to give a good approximation of f(x) in the neighborhood of 0?"),
+    NINETEENTH("Each morning a man walks to work, and each afternoon he walks back home.\n"
+            + "If it is raining in the morning and he has an umbrella at home, he takes an umbrella for the journey\n"
+            +"so he doesn't get wet, and stores it at work. Likewise, if it is raining in the afternoon \n"
+            +"and he has an umbrella at work, he takes an umbrella for the journey home.\n"
+            + "Given an array of the weather conditions, your task is to work out the minimum number of umbrellas he needs\n"
+            +"to start with in order that he never gets wet. He can start with some umbrellas at home and some at work,\n"
+            +"but the output is a single integer, the minimum total number.\n"
+            + "The input is an array/list of consecutive half-day weather forecasts. So, e.g. the first value is the 1st day's morning weather\n"
+            +"and the second value is the 1st day's afternoon weather. \n"
+            +"The options are \"clear\", \"sunny\", \"cloudy\", \"rainy\", \"windy\" or \"thunderstorms\"."),
     EXIT("The End! Thank You!");
     private String description;
 

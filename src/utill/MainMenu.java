@@ -5,6 +5,7 @@ import tasks.*;
 import java.util.Arrays;
 
 import static tasks.Fifth.count;
+import static tasks.Nineteenth.minUmbrellas;
 
 public class MainMenu {
 
@@ -23,7 +24,6 @@ public class MainMenu {
                 case (2) -> TasksDescriptions.SECOND.getDescription();
                 case (3) -> {
                     TasksDescriptions.THIRD.getDescription();
-                    float mpg = ReadFromConsole.getFloatNumber();
                     System.out.println(Third.mpgToKPM(mpg));
                 }
                 case (4) -> TasksDescriptions.FOURTH.getDescription();
@@ -40,19 +40,22 @@ public class MainMenu {
                 }
                 case (7) -> {
                     TasksDescriptions.SEVENTH.getDescription();
-                    double n = ReadFromConsole.getFloatNumber();
-                    System.out.println(Seventh.am_i_wilson(n) ? "Yes" : "No");
+                    System.out.println(Seventh.am_i_wilson(ReadFromConsole.getFloatNumber()) ? "Yes" : "No");
                 }
                 case (11) -> {
                     TasksDescriptions.ELEVENTH.getDescription();
-                    int n = ReadFromConsole.getIntNumber();
-                    System.out.println(Eleventh.seriesSum(n));
+                    System.out.println(Eleventh.seriesSum(ReadFromConsole.getIntNumber()));
                 }
                 case (15) -> {
                     TasksDescriptions.FIFTEENTH.getDescription();
                     System.out.println("Enter double number with exponential part(e.g 1e-16): ");
                     double number = ReadFromConsole.getDoubleNumber();
                     Fifteenth.f(number);
+                }
+                case (19) -> {
+                    TasksDescriptions.NINETEENTH.getDescription();
+                    System.out.println("Count of needed umbrellas is "
+                            + minUmbrellas(ReadFromConsole.getArrayOfWeather()));
                 }
 
                 default -> System.out.println("Incorrect input!");
