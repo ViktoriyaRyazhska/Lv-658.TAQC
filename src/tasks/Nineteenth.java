@@ -5,7 +5,6 @@ import utill.ReadFromConsole;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class Nineteenth {
     public static List<String> takeUmbrella = Arrays.asList("thunderstorms", "rainy");
 

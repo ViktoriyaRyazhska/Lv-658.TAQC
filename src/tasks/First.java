@@ -1,6 +1,4 @@
 package tasks;
-import java.util.Scanner;
-import java.sql.SQLOutput;
 
 public class First {
     public static int count(float time) {
