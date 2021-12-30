@@ -11,7 +11,7 @@ public class SquareRoot {
         for (int i = 0; i < sizeOfArray; i++) {
             array[i] = Integer.parseInt(str[i]);
             if (array[i] < 0) {
-                throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
+                throw new IllegalArgumentException("Only Positive Numbers!");
             }
         }
         return array;
@@ -44,19 +44,29 @@ public class SquareRoot {
         return newArray;
     }
 
-    public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br) {
         System.out.println("Please, enter size of an array:");
-        int sizeOfArray = Integer.parseInt(br.readLine());
+        try {
+            int sizeOfArray = Integer.parseInt(br.readLine());
+            if (sizeOfArray <= 0) {
+                throw new IllegalArgumentException("Only Positive Numbers!");
+            }
+            System.out.printf("Please, enter array: ");
+            int array[] = new int[sizeOfArray];
+            arrayInput(br, sizeOfArray, array);
 
-        System.out.printf("Please, enter array: ");
-        int array[] = new int[sizeOfArray];
-        arrayInput(br, sizeOfArray, array);
-
-        int[] newArray = new int[sizeOfArray];
-        arrayOutput(sizeOfArray, array, newArray);
-        System.out.printf("New array is: ");
-        for (int i = 0; i < sizeOfArray; i++) {
-            System.out.printf(newArray[i] + "  ");
+            int[] newArray = new int[sizeOfArray];
+            arrayOutput(sizeOfArray, array, newArray);
+            System.out.printf("New array is: ");
+            for (int i = 0; i < sizeOfArray; i++) {
+                System.out.printf(newArray[i] + "  ");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            task(br);
         }
     }
 }
