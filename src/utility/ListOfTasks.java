@@ -9,7 +9,7 @@ public class ListOfTasks {
                 "5. TheSmallest\n" +
                 "6. PerimeterSquares\n" +
                 "7. KeepHydrated\n" +
-                "8. MilesToKilometers" +
+                "8. MilesToKilometers\n" +
                 "9. WillsonPrimes";
 
         return list;
