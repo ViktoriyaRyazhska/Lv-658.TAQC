@@ -254,7 +254,7 @@ public class ChooseTask extends Constants {
             }
         } catch (IOException e) {
             System.out.println("Error.. try again");
-            selectSecond(reader);
+            selectThird(reader);
         }
     }
 
