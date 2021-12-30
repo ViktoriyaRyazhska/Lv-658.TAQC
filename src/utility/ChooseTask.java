@@ -258,10 +258,4 @@ public class ChooseTask extends Constants {
         }
     }
 
-
-
-    public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        chooseFirst(reader);
-    }
 }
