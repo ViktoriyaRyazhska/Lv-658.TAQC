@@ -2,7 +2,8 @@ package utility;
 
 public class ListOfTasks {
     private static String firstList() {
-        String list = "1. ArtificialRain\n" +
+        String list = "0. Exit\n" +
+                "1. ArtificialRain\n" +
                 "2. LookingBenefactor\n" +
                 "3. TrailingZeros\n" +
                 "4. StringToNumber\n" +
@@ -10,13 +11,16 @@ public class ListOfTasks {
                 "6. PerimeterSquares\n" +
                 "7. KeepHydrated\n" +
                 "8. MilesToKilometers\n" +
-                "9. WillsonPrimes";
+                "9. WillsonPrimes\n" +
+                "11. Next";
 
         return list;
     }
 
     private static String secondList() {
-        String list = "1. Rainfall\n" +
+        String list = "0. Exit\n" +
+                "00. Previous\n" +
+                "1. Rainfall\n" +
                 "2. FormattingDecimal\n" +
                 "3. SquareRoot\n" +
                 "4. VolumeCuboid\n" +
@@ -24,13 +28,16 @@ public class ListOfTasks {
                 "6. BuildCubes\n" +
                 "7. Vasya\n" +
                 "8. BalanceChecking\n" +
-                "9. SumOfTerm";
+                "9. SumOfTerm\n" +
+                "11. Next";
 
         return list;
     }
 
     private static String thirdList() {
-        String list = "1. GapPrimes\n" +
+        String list = "0. Exit\n" +
+                "00. Previous\n" +
+                "1. GapPrimes\n" +
                 "2. HelpBookseller\n" +
                 "3. CountPositive\n" +
                 "4. IsDivisible\n" +
