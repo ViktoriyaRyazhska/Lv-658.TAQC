@@ -19,14 +19,14 @@ public class ListOfTasks {
 
     private static String secondList() {
         String list = "0. Exit\n" +
-                "00. Previous\n" +
+                "10. Previous\n" +
                 "1. Rainfall\n" +
                 "2. FormattingDecimal\n" +
                 "3. SquareRoot\n" +
                 "4. VolumeCuboid\n" +
                 "5. WhichX\n" +
                 "6. BuildCubes\n" +
-                "7. Vasya\n" +
+                "7. CountSalutes\n" +
                 "8. BalanceChecking\n" +
                 "9. SumOfTerm\n" +
                 "11. Next";
@@ -36,7 +36,7 @@ public class ListOfTasks {
 
     private static String thirdList() {
         String list = "0. Exit\n" +
-                "00. Previous\n" +
+                "10. Previous\n" +
                 "1. GapPrimes\n" +
                 "2. HelpBookseller\n" +
                 "3. CountPositive\n" +
