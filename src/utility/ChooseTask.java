@@ -33,7 +33,7 @@ public class ChooseTask extends Constants {
             case EXIT:
                 break;
             case 1:
-               // ArtificialRain.task(reader);
+                //ArtificialRain.task(reader);
                 selectFirst(reader);
                 break;
             case 2:
@@ -45,7 +45,7 @@ public class ChooseTask extends Constants {
                 selectFirst(reader);
                 break;
             case 4:
-               // StringToNumber.task(reader);
+                StringToNumber.task(reader);
                 selectFirst(reader);
                 break;
             case 5:
@@ -53,15 +53,15 @@ public class ChooseTask extends Constants {
                 selectFirst(reader);
                 break;
             case 6:
-              //  PerimeterSquares.task(reader);
+                PerimeterSquares.task(reader);
                 selectFirst(reader);
                 break;
             case 7:
-             //   KeepHydrated.task(reader);
+                KeepHydrated.task(reader);
                 selectFirst(reader);
                 break;
             case 8:
-              //  MilesToKilometers.task(reader);
+                MilesToKilometers.task(reader);
                 selectFirst(reader);
                 break;
             case 9:
@@ -100,7 +100,7 @@ public class ChooseTask extends Constants {
             case EXIT:
                 break;
             case 1:
-              //  Rainfall.task(reader);
+                Rainfall.task(reader);
                 selectSecond(reader);
                 break;
             case 2:
@@ -108,7 +108,7 @@ public class ChooseTask extends Constants {
                 selectSecond(reader);
                 break;
             case 3:
-              //  SquareRoot.task(reader);
+                SquareRoot.task(reader);
                 selectSecond(reader);
                 break;
             case 4:
@@ -116,7 +116,7 @@ public class ChooseTask extends Constants {
                 selectSecond(reader);
                 break;
             case 5:
-             //   WhichX.task(reader);
+                //WhichX.task(reader);
                 selectSecond(reader);
                 break;
             case 6:
@@ -168,11 +168,11 @@ public class ChooseTask extends Constants {
                 selectThird(reader);
                 break;
             case 2:
-              //  HelpBookseller.task(reader);
+                HelpBookseller.task(reader);
                 selectThird(reader);
                 break;
             case 3:
-              // CountPositive.task(reader);
+                CountPositive.task(reader);
                 selectThird(reader);
                 break;
             case 4:
