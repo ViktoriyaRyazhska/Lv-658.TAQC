@@ -4,258 +4,233 @@ import tasks.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class ChooseTask extends Constants {
-    public static void chooseFirst(BufferedReader reader) {
-        System.out.println("Choose task: ");
-        System.out.println(ListOfTasks.getFirstList());
-        System.out.print("> ");
-        int task = -1;
-        try {
-            task = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            chooseFirst(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. not a number");
-            chooseFirst(reader);
-        }
+    private static int TASK;
+    private static int LIST = 1;
 
-        switch (task) {
-            default:
-                System.out.println("Error.. this option doesn`t exist");
-                chooseFirst(reader);
-                break;
-            case NEXT:
-                chooseSecond(reader);
-                break;
-            case EXIT:
-                break;
-            case 1:
-                //ArtificialRain.task(reader);
-                selectFirst(reader);
-                break;
-            case 2:
-                LookingBenefactor.task(reader);
-                selectFirst(reader);
-                break;
-            case 3:
-                TrailingZeros.task(reader);
-                selectFirst(reader);
-                break;
-            case 4:
-                StringToNumber.task(reader);
-                selectFirst(reader);
-                break;
-            case 5:
-                TheSmallest.task(reader);
-                selectFirst(reader);
-                break;
-            case 6:
-                PerimeterSquares.task(reader);
-                selectFirst(reader);
-                break;
-            case 7:
-                KeepHydrated.task(reader);
-                selectFirst(reader);
-                break;
-            case 8:
-                MilesToKilometers.task(reader);
-                selectFirst(reader);
-                break;
-            case 9:
-                WillsonPrimes.task(reader);
-                selectFirst(reader);
-                break;
-        }
+    public static int getTASK() {
+        return TASK;
     }
 
-    public static void chooseSecond(BufferedReader reader) {
-        System.out.println("Choose task: ");
-        System.out.println(ListOfTasks.getSecondList());
-        System.out.print("> ");
-        int task = -1;
-        try {
-            task = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            chooseFirst(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. not a number");
-            chooseFirst(reader);
-        }
-
-        switch (task) {
-            default:
-                System.out.println("Error.. this option doesn`t exist");
-                chooseFirst(reader);
-                break;
-            case PREV:
-                chooseFirst(reader);
-                break;
-            case NEXT:
-                chooseThird(reader);
-                break;
-            case EXIT:
-                break;
+    public static int chooseTask(BufferedReader reader) throws IOException, NumberFormatException {
+        switch (LIST) {
             case 1:
-                Rainfall.task(reader);
-                selectSecond(reader);
+                System.out.println(ListOfTasks.getFirstList());
                 break;
             case 2:
-                FormattingDecimal.task(reader);
-                selectSecond(reader);
+                System.out.println(ListOfTasks.getSecondList());
                 break;
             case 3:
-                SquareRoot.task(reader);
-                selectSecond(reader);
-                break;
-            case 4:
-                VolumeCuboid.task(reader);
-                selectSecond(reader);
-                break;
-            case 5:
-                //WhichX.task(reader);
-                selectSecond(reader);
-                break;
-            case 6:
-                BuildCubes.task(reader);
-                selectSecond(reader);
-                break;
-            case 7:
-                CountSalutes.task(reader);
-                selectSecond(reader);
-                break;
-            case 8:
-                BalanceChecking.task(reader);
-                selectSecond(reader);
-                break;
-            case 9:
-                SumOfTerm.task(reader);
-                selectSecond(reader);
+                System.out.println(ListOfTasks.getThirdList());
                 break;
         }
+        System.out.print("Choose option:\n> ");
+
+        int option = Integer.parseInt(reader.readLine());
+        TASK = option;
+
+        return option;
     }
 
-    public static void chooseThird(BufferedReader reader) {
-        System.out.println("Choose task: ");
-        System.out.println(ListOfTasks.getThirdList());
-        System.out.print("> ");
-        int task = -1;
-        try {
-            task = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            chooseFirst(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. not a number");
-            chooseFirst(reader);
-        }
-
-        switch (task) {
-            default:
-                System.out.println("Error.. this option doesn`t exist");
-                chooseFirst(reader);
-                break;
-            case PREV:
-                chooseSecond(reader);
-                break;
-            case EXIT:
-                break;
-            case 1:
-                GapPrimes.task(reader);
-                selectThird(reader);
-                break;
-            case 2:
-                HelpBookseller.task(reader);
-                selectThird(reader);
-                break;
-            case 3:
-                CountPositive.task(reader);
-                selectThird(reader);
-                break;
-            case 4:
-                IsDivisible.task(reader);
-                selectThird(reader);
-                break;
-            case 5:
-                RankingNBA.task(reader);
-                selectThird(reader);
-                break;
-            case 6:
-                FloatingPoint.task(reader);
-                selectThird(reader);
-                break;
+    private static void select(BufferedReader reader) throws IOException {
+        System.out.print("Y for continue\nN for exit\n> ");
+        String option = reader.readLine().toLowerCase();
+        if (option.equals("y")) {
+            switch (LIST) {
+                case 1:
+                    runTaskFirst(reader, chooseTask(reader));
+            }
+        } else if (option.equals("n")) {
+            System.exit(1);
+        } else {
+            System.out.println("Error.. this option doesn`t exist");
+            select(reader);
         }
     }
 
 
-
-    private static void selectFirst(BufferedReader reader) {
-        System.out.println("Y for continue\nN for exit");
-        System.out.print("> ");
+    public static void runTaskFirst(BufferedReader reader, int task) throws IOException {
         try {
-            String choice = reader.readLine().toUpperCase();
-            switch (choice) {
+            switch (task) {
                 default:
-                    System.out.println("Error.. this option doesn`t exist");
-                    selectFirst(reader);
+                    throw new IllegalArgumentException("Error.. this option doesn`t exist");
+                case NEXT:
+                    LIST++;
+                    runTaskSecond(reader, chooseTask(reader));
                     break;
-                case "Y":
-                    chooseFirst(reader);
+                case EXIT:
                     break;
-                case "N":
+                case 1:
+                    //ArtificialRain.task(reader);
+                    select(reader);
+                    break;
+                case 2:
+                    LookingBenefactor.task(reader);
+                    select(reader);
+                    break;
+                case 3:
+                    TrailingZeros.task(reader);
+                    select(reader);
+                    break;
+
+                case 4:
+                    StringToNumber.task(reader);
+                    select(reader);
+                    break;
+                case 5:
+                    TheSmallest.task(reader);
+                    select(reader);
+                    break;
+                case 6:
+                    PerimeterSquares.task(reader);
+                    select(reader);
+                    break;
+                case 7:
+                    KeepHydrated.task(reader);
+                    select(reader);
+                    break;
+                case 8:
+                    MilesToKilometers.task(reader);
+                    select(reader);
+                    break;
+                case 9:
+                    WillsonPrimes.task(reader);
+                    select(reader);
                     break;
             }
         } catch (IOException e) {
-            System.out.println("Error.. try again");
-            selectFirst(reader);
+            System.err.println("Error.. try again");
+            runTaskFirst(reader, TASK);
+
+        } catch (NumberFormatException e) {
+            System.err.println(e.getMessage());
+            runTaskFirst(reader, TASK);
+
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            runTaskFirst(reader, chooseTask(reader));
         }
     }
 
-    private static void selectSecond(BufferedReader reader) {
-        System.out.println("Y for continue\nN for exit");
-        System.out.print("> ");
+    public static void runTaskSecond(BufferedReader reader, int task) throws IOException {
         try {
-            String choice = reader.readLine().toUpperCase();
-            switch (choice) {
+            switch (task) {
                 default:
-                    System.out.println("Error.. this option doesn`t exist");
-                    selectSecond(reader);
+                    throw new IllegalArgumentException("Error.. this option doesn`t exist");
+                case NEXT:
+                    LIST++;
+                    runTaskThird(reader, chooseTask(reader));
                     break;
-                case "Y":
-                    chooseSecond(reader);
+                case PREV:
+                    LIST--;
+                    runTaskFirst(reader, chooseTask(reader));
                     break;
-                case "N":
+                case EXIT:
+                    break;
+                case 1:
+                    Rainfall.task(reader);
+                    select(reader);
+                    break;
+                case 2:
+                    FormattingDecimal.task(reader);
+                    select(reader);
+                    break;
+                case 3:
+                    SquareRoot.task(reader);
+                    select(reader);
+                    break;
+
+                case 4:
+                    VolumeCuboid.task(reader);
+                    select(reader);
+                    break;
+                case 5:
+                    // WhichX.task(reader);
+                    select(reader);
+                    break;
+                case 6:
+                    BuildCubes.task(reader);
+                    select(reader);
+                    break;
+                case 7:
+                    CountSalutes.task(reader);
+                    select(reader);
+                    break;
+                case 8:
+                    BalanceChecking.task(reader);
+                    select(reader);
+                    break;
+                case 9:
+                    SumOfTerm.task(reader);
+                    select(reader);
                     break;
             }
         } catch (IOException e) {
-            System.out.println("Error.. try again");
-            selectSecond(reader);
+            System.err.println("Error.. try again");
+            runTaskSecond(reader, TASK);
+
+        } catch (NumberFormatException e) {
+            System.err.println(e.getMessage());
+            runTaskSecond(reader, TASK);
+
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            runTaskSecond(reader, chooseTask(reader));
         }
     }
 
-    private static void selectThird(BufferedReader reader) {
-        System.out.println("Y for continue\nN for exit");
-        System.out.print("> ");
+    public static void runTaskThird(BufferedReader reader, int task) throws IOException {
         try {
-            String choice = reader.readLine().toUpperCase();
-            switch (choice) {
+            switch (task) {
                 default:
-                    System.out.println("Error.. this option doesn`t exist");
-                    selectThird(reader);
+                    throw new IllegalArgumentException("Error.. this option doesn`t exist");
+                case PREV:
+                    LIST--;
+                    runTaskSecond(reader, chooseTask(reader));
                     break;
-                case "Y":
-                    chooseThird(reader);
+                case EXIT:
                     break;
-                case "N":
+                case 1:
+                    GapPrimes.task(reader);
+                    select(reader);
+                    break;
+                case 2:
+                    HelpBookseller.task(reader);
+                    select(reader);
+                    break;
+                case 3:
+                    CountPositive.task(reader);
+                    select(reader);
+                    break;
+                case 4:
+                    IsDivisible.task(reader);
+                    select(reader);
+                    break;
+                case 5:
+                    RankingNBA.task(reader);
+                    select(reader);
+                    break;
+                case 6:
+                    FloatingPoint.task(reader);
+                    select(reader);
                     break;
             }
         } catch (IOException e) {
-            System.out.println("Error.. try again");
-            selectThird(reader);
+            System.err.println("Error.. try again");
+            runTaskThird(reader, TASK);
+
+        } catch (NumberFormatException e) {
+            System.err.println(e.getMessage());
+            runTaskThird(reader, TASK);
+
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            runTaskThird(reader, chooseTask(reader));
         }
     }
-
 }
+
+
+
+
