@@ -3,26 +3,26 @@ import java.util.Scanner;
 
 
 public class FormattingDecimalPlaces {
-    public static void main(String args[]) {
 
-        double i;
-        String str = null;
-        while (true) {
-            Scanner scn = new Scanner(System.in);
-            System.out.println("Enter you number 'like 2,22 of 21,8889'");
-            try {
-                i = scn.nextDouble();
-                System.out.println(String.format("%.2f",i));
+    public static void main(String args[]){
+        String a ="";
+        Test4 start = new Test4();
+        Scanner scn = new Scanner(System.in);
+        System.out.println("enter double number like 2,222 or 2222");
 
-            } catch (NumberFormatException ex) {
-                ex.printStackTrace();
-            }
-            System.out.println("Press q for exit or some to continue: ");
-            str = scn.next();
-            if (str.equals("q")) {
-                System.out.println("Выход");
-                return;
-            }
+        String i = scn.nextLine();
+        try {
+            Double i1 = Double.parseDouble(i);
+            String res = start.FDP(i1);
+            System.out.println(res);
         }
+        catch (Exception ex){
+            System.out.println("your value is wrong"+ex.getMessage());
+        }
+    }
+    public String FDP(Double x){
+        boolean bool = true;
+        String x1 = String.format("%.2f",x);
+        return x1;
     }
 }
