@@ -22,7 +22,7 @@ public class TrailingZeros {
         try {
             int number = Integer.parseInt(reader.readLine());
             if (number < 0) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Error.. number can`t be negative");
             }
             output(number);
         } catch (IOException e) {
@@ -32,7 +32,7 @@ public class TrailingZeros {
             System.out.println("Error.. not a number");
             task(reader);
         } catch (IllegalArgumentException e) {
-            System.out.println("Error.. number can`t be negative");
+            System.out.println(e.getMessage());
             task(reader);
         }
     }

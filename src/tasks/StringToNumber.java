@@ -5,25 +5,30 @@ import java.io.IOException;
 
 public class StringToNumber {
 
-    public static int convert(String str) {
-        boolean flag;
+    private static int convert(String str) {
         Integer number = Integer.valueOf(str);
-        flag = isNumeric(str);
-        if (flag) {
-            return number;
-        } else {
-            throw new NumberFormatException("No Letters Please!");
-        }
+        return number;
     }
 
     private static boolean isNumeric(String str) {
         return str != null && str.matches("[0-9.]+");
     }
 
-    public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br) {
         System.out.println("Please, enter the number:");
-        String numberStr = br.readLine();
-        int number = convert(numberStr);
-        System.out.printf(" '%s' ----> %d ", numberStr, number);
+        try {
+            String numberStr = br.readLine();
+            if (!isNumeric(numberStr)) {
+                throw new IllegalArgumentException("No Letters Please!");
+            }
+            int number = convert(numberStr);
+            System.out.printf(" '%s' ----> %d ", numberStr, number);
+        } catch (IOException e) {
+            e.printStackTrace();
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            task(br);
+        }
     }
 }

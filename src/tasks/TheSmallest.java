@@ -163,13 +163,16 @@ public class TheSmallest {
             int number = Integer.parseInt(reader.readLine());
             if (validate(number)) {
                 output(findMin(numberToChars(number), numberToChars(number)));
+            } else {
+                task(reader);
             }
         } catch (IOException e) {
             System.out.println("Error.. enter a number plz");
             task(reader);
+        } catch (NumberFormatException e) {
+            System.out.println("Error.. not a number");
+            task(reader);
         }
-
-
     }
 
 }

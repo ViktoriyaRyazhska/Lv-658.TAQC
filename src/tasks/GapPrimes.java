@@ -76,18 +76,25 @@ public class GapPrimes {
     }
     // --------------
 
+    public static void task(BufferedReader reader)  {
+        try {
+            System.out.print("Enter from-number ( > 2 )\n> ");
+            int from = Integer.parseInt(reader.readLine());
+            System.out.print("Enter to-number ( >= from-number )\n> ");
+            int to = Integer.parseInt(reader.readLine());
+            System.out.print("Enter the gap ( >= 2)\n> ");
+            int gap = Integer.parseInt(reader.readLine());
 
-
-    public static void task(BufferedReader reader) throws IOException, NumberFormatException {
-        System.out.print("Enter from-number ( > 2 )\n> ");
-        int from = Integer.parseInt(reader.readLine());
-        System.out.print("Enter to-number ( >= from-number )\n> ");
-        int to = Integer.parseInt(reader.readLine());
-        System.out.print("Enter the gap ( >= 2)\n> ");
-        int gap = Integer.parseInt(reader.readLine());
-        if (validate(from, to, gap)) {
-            output(from, to, gap);
-        } else {
+            if (validate(from, to, gap)) {
+                output(from, to, gap);
+            } else {
+                task(reader);
+            }
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
+            task(reader);
+        } catch (NumberFormatException e) {
+            System.out.println("Error.. try again");
             task(reader);
         }
     }
