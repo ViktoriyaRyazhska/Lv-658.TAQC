@@ -1,7 +1,5 @@
 package tasks;
 
-import runapp.RunApp;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,15 +7,11 @@ import java.util.Arrays;
 
 public class ToSquareRootOrNoToSquare {
 
-    public static void conditionOfTask() {
-        System.out.println("To square(root) or not to square(root)\n" +
-                "Write a method, that will get an integer array as parameter and will process every number from this array.\n" +
-                "Return a new array with processing every number of the input-array like this:");
-    }
-
     public static int[] toSquareOrNot(int[] array) {
         for (int i = 0; i < array.length; i++) {
-
+            if (array[i] < 0) {
+                throw new IllegalArgumentException("Only Positive Numbers!");
+            }
             double sqr = Math.sqrt(array[i]);
             if (sqr == Math.round(sqr)) {
                 array[i] = (int) sqr;
@@ -40,13 +34,10 @@ public class ToSquareRootOrNoToSquare {
         return arrayOfInt;
     }
 
-
     public static void runTask4(BufferedReader reader) throws IOException {
-        conditionOfTask();
         try {
             System.out.println("Set array of integers");
             System.out.println("New array" + Arrays.toString(toSquareOrNot(extractIntegersFromText())));
-            RunApp.repeat(reader);
         } catch (NumberFormatException e) {
             System.out.println("Wrong value: Set digits");
             runTask4(reader);
