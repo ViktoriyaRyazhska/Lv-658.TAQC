@@ -27,26 +27,39 @@ public class PerimeterSquares {
         return result;
     }
 
-    private static void output(int number) {
-        int result = calcPerimetr(fibonacciSequence(number));
-        System.out.println("Result: " + result);
+    private static boolean validate(int number) {
+        boolean flag = true;
+
+        if (number <= 0) {
+            System.out.println("Error.. number must be positive");
+            flag = false;
+        }
+
+        return flag;
     }
+
+    private static String output(int number) {
+        String result = "Result:" + calcPerimetr(fibonacciSequence(number));
+
+        return result;
+    }
+
+
 
     public static void task(BufferedReader reader) {
         System.out.print("Enter a positive number:\n> ");
         try {
             int number = Integer.parseInt(reader.readLine());
-            if (number <= 0) {
-                throw new IllegalArgumentException("Error.. number can`t be <= 0");
+            if(validate(number)) {
+                output(number);
+            } else {
+                task(reader);
             }
         } catch (IOException e) {
             System.out.println("Error.. try again");
             task(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. not a number");
-            task(reader);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error.. not a number");
             task(reader);
         }
     }

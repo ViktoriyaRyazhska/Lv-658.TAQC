@@ -1,8 +1,10 @@
 package tasks;
 
+import javax.xml.transform.Source;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLOutput;
 
 
 public class TrailingZeros {
@@ -12,27 +14,37 @@ public class TrailingZeros {
         return result;
     }
 
-    private static void output(int number) {
-        int result = findZeros(number);
-        System.out.println("Result: " + result);
+    private static String output(int number) {
+        String result = "Result: " + findZeros(number);
+
+        return result;
+    }
+
+    private static boolean validate(int number) {
+        boolean flag = true;
+        if (number <= 0) {
+            flag = false;
+            System.out.println("Error.. number must be positive");
+        }
+
+        return flag;
     }
 
     public static void task(BufferedReader reader) {
-        System.out.print("Enter a number:\n> ");
+        System.out.print("Enter a positive number:\n> ");
         try {
             int number = Integer.parseInt(reader.readLine());
-            if (number < 0) {
-                throw new IllegalArgumentException("Error.. number can`t be negative");
+
+            if (validate(number)) {
+                System.out.println(output(number));
+            } else {
+                task(reader);
             }
-            output(number);
         } catch (IOException e) {
             System.out.println("Error.. try again");
             task(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. not a number");
-            task(reader);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error.. not a number");
             task(reader);
         }
     }
