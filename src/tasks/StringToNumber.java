@@ -24,6 +24,17 @@ public class StringToNumber {
         }
         return flag;
     }
+    public static boolean getIsNumeric(String str){
+        return isNumeric(str);
+    }
+
+    public static int getConvert(String str){
+        return convert(str);
+    }
+
+    public static boolean getValidate(String str){
+        return validate(str);
+    }
 
     public static void task(BufferedReader br) {
         System.out.println("Please, enter the number:");
