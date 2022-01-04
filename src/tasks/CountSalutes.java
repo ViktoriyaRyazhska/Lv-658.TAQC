@@ -28,10 +28,10 @@ public class CountSalutes {
 
     private static boolean validate(String linePeople) {
         boolean flag = true;
-        String regex = "[>_]+";
+        String regex = "[><-]+";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(linePeople);
-        if (linePeople == null) { // && str.matches("[0-9.]+");) {
+        if (linePeople == null) {
             flag = false;
             System.out.println("Error.. line is empty");
         }
@@ -42,14 +42,20 @@ public class CountSalutes {
     }
 
 
-    public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br)  {
         System.out.println("Please, enter the line with people in '>---<---<' format" +
                 ",\nwhere '>' is person who move to the right, '<' is person who move to the left: ");
-        String line = br.readLine();
-        if(validate(line)) {
-            System.out.println("Number of salutes is: " + countSalutes(line));
-        }
-        else {
+        String line = null;
+        try {
+            line = br.readLine();
+            if(validate(line)) {
+                System.out.println("Number of salutes is: " + countSalutes(line));
+            }
+            else {
+                task(br);
+            }
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
             task(br);
         }
     }

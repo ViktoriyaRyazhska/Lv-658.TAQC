@@ -28,28 +28,35 @@ public class IsDivisible {
         return flag;
     }
 
-    public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br)  {
         System.out.println("Please, enter number`s quantity:");
-        int size = Integer.parseInt(br.readLine());
+        int size = 0;
+        try {
+            size = Integer.parseInt(br.readLine());
+            System.out.println("Please, enter numbers:");
+            int[] array = new int[size];
+            for (int i = 0; i < size; i++) {
+                array[i] = Integer.parseInt(br.readLine());
+            }
+            System.out.println("Please, enter divisor:");
+            int divisor = Integer.parseInt(br.readLine());
 
-        System.out.println("Please, enter numbers:");
-        int[] array = new int[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = Integer.parseInt(br.readLine());
-        }
-
-        System.out.println("Please, enter divisor:");
-        int divisor = Integer.parseInt(br.readLine());
-
-        if(validate(array,divisor))
-        {
-            int[] arrayRes = divisibleBy(array, divisor);
-            System.out.println("Result is:");
-            System.out.println(Arrays.toString(arrayRes));
-        }
-        else
-        {
+            if(validate(array,divisor)) {
+                int[] arrayRes = divisibleBy(array, divisor);
+                System.out.println("Result is:");
+                System.out.println(Arrays.toString(arrayRes));
+            }
+            else {
+                task(br);
+            }
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
             task(br);
         }
+
+
     }
 }

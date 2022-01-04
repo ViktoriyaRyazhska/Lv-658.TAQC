@@ -14,33 +14,39 @@ public class LookingBenefactor {
     private static boolean validate(double[] arr, double averageAmountDonations)
     {
         boolean flag = true;
-        if(Arrays.stream(arr).allMatch(i -> i < 0))
-        {
+        if(Arrays.stream(arr).allMatch(i -> i < 0)) {
             flag = false;
             System.out.println("Amount of money mush have positive value");
         }
         return flag;
-
     }
 
-    public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br) {
 
         System.out.println("Please, enter the quantity of donations: ");
-        int size = Integer.parseInt(br.readLine());
+        int size = 0;
+        try {
+            size = Integer.parseInt(br.readLine());
+            double[] array = new double[size];
+            System.out.println("Enter donations: ");
+            for (int i = 0; i < size; i++) {
+                array[i] = Double.parseDouble(br.readLine());
+            }
 
-        double[] array = new double[size];
-        System.out.println("Enter donations: ");
-        for (int i = 0; i < size; i++) {
-            array[i] = Double.parseDouble(br.readLine());
-        }
+            System.out.println("Enter the suggested average amount of donations: ");
 
-        System.out.println("Enter the suggested average amount of donations: ");
-
-        int averageAmountDonations = Integer.parseInt(br.readLine());
-        if (validate(array, averageAmountDonations)) {
-            System.out.println("Next donation must be : "
-                    + Math.ceil(expectedAmountOfMoney(array, averageAmountDonations)));
-        } else {
+            int averageAmountDonations = Integer.parseInt(br.readLine());
+            if (validate(array, averageAmountDonations)) {
+                System.out.println("Next donation must be : "
+                        + Math.ceil(expectedAmountOfMoney(array, averageAmountDonations)));
+            } else {
+                task(br);
+            }
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
             task(br);
         }
     }

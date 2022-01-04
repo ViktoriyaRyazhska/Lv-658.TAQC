@@ -29,18 +29,15 @@ public class WillsonPrimes {
         return isPrime(n) || (factorial(n - 1) + 1) % n * n == 0;
     }
 
-    public static boolean getIsWilson(int n)
-    {
+    public static boolean getIsWilson(int n) {
         return isWilson(n);
     }
 
-    public static long getFactorial(int n)
-    {
+    public static long getFactorial(int n) {
         return factorial(n);
     }
 
-    public static boolean getIsPrime(int n)
-    {
+    public static boolean getIsPrime(int n) {
         return isPrime(n);
     }
 
@@ -53,22 +50,32 @@ public class WillsonPrimes {
        return flag;
     }
 
-    public static void task(BufferedReader br) throws NumberFormatException, IOException {
+    public static void task(BufferedReader br) {
 
         System.out.println("Please, enter the number:");
-        int number = Integer.parseInt(br.readLine());
-        if(validate(number))
-        {
-            boolean resIsWilson = isWilson(number);
-            if(resIsWilson) {
-                System.out.println("This number is Wilson prime!");
-            }
-            else
+        int number = 0;
+        try {
+            number = Integer.parseInt(br.readLine());
+            if(validate(number))
             {
-                System.out.println("This number is not Wilson prime!");
-                task(br);
+                boolean resIsWilson = isWilson(number);
+                if(resIsWilson) {
+                    System.out.println("This number is Wilson prime!");
+                }
+                else
+                {
+                    System.out.println("This number is not Wilson prime!");
+                    task(br);
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
+            task(br);
         }
+
     }
 }
 

@@ -16,9 +16,19 @@ public class SumOfTerm {
         return sumOfTerm(n);
     }
 
-    public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br) {
         System.out.println("Please, enter the quantity of numbers by which we find the sum: ");
-        int inputQuantityNumbers = Integer. parseInt(br.readLine());
-        System.out.println("Sum is: " +  sumOfTerm(inputQuantityNumbers));
+        int inputQuantityNumbers = 0;
+        try {
+            inputQuantityNumbers = Integer. parseInt(br.readLine());
+            System.out.println("Sum is: " +  sumOfTerm(inputQuantityNumbers));
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
+            task(br);
+        }
+
     }
 }

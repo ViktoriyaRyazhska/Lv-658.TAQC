@@ -23,16 +23,26 @@ public class FormattingDecimal {
         }
        return flag;
     }
-    public static void task(BufferedReader br) throws IOException {
-        System.out.println("Please, enter numbers:");
-        double inputNumber = Double.parseDouble(br.readLine());
-        if(validate(inputNumber)) {
-            Double formattingNumber = formatting(inputNumber);
-            System.out.println("Result is:" + formattingNumber);
-        }
-        else
-        {
+    public static void task(BufferedReader br) {
+        System.out.println("Please, enter number:");
+        double inputNumber = 0;
+        try {
+            inputNumber = Double.parseDouble(br.readLine());
+            if(validate(inputNumber)) {
+                Double formattingNumber = formatting(inputNumber);
+                System.out.println("Result is:" + formattingNumber);
+            }
+            else
+            {
+                task(br);
+            }
+        } catch (IOException e) {
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
             task(br);
         }
+
     }
 }
