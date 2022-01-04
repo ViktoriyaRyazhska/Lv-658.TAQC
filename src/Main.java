@@ -6,13 +6,8 @@ import java.io.InputStreamReader;
 
 
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            ChooseTask.chooseTask(reader);
-            ChooseTask.runTaskFirst(reader, ChooseTask.getTASK());
-        } catch (IOException e) {
-
-        }
+        ChooseTask.runFirst(reader, ChooseTask.chooseTask(reader));
     }
 }
