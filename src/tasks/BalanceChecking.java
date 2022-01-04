@@ -13,25 +13,15 @@ public class BalanceChecking {
 
     private static String deleteNotUsableSymbols(String cB){
         String input;
-        input = cB.replaceAll("%", "");
-        input = input.replaceAll(";", "");
-        input = input.replaceAll("\\?", "");
-        input = input.replaceAll("\\*", "");
-        input = input.replaceAll("\\+", "");
-        input = input.replaceAll("/", "");
-        input = input.replaceAll(",", "");
-        input = input.replaceAll("!", "");
-        input = input.replaceAll("@", "");
-        input = input.replaceAll("#", "");
-        input = input.replaceAll("$", "");
-        input = input.replaceAll("//^", "");
-        input = input.replaceAll("&", "");
+        input = cB.replaceAll("[^\\p{L}\\p{Z}\\p{N}\\.]", "");
         return input;
     }
 
     private static String balance(String cB) {
-        String input = deleteNotUsableSymbols(cB);
-        String[]lines =input.split("\n");
+        String[]lines =cB.split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            lines[i] = deleteNotUsableSymbols(lines[i]);
+        }
         double balance= Double.valueOf(lines[0]);
         double sum = 0.0;
         String[] line;
