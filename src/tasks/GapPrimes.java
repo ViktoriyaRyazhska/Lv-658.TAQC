@@ -2,7 +2,6 @@ package tasks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,59 +41,52 @@ public class GapPrimes {
         return result;
     }
 
-    // output result
-    private static void output(int from, int to, int gap) {
-        System.out.println("Result: " + findGap(gap, primes(from, to)));
-    }
-
-    // to verify input data
     private static boolean validate(int from, int to, int gap) {
         boolean flag = true;
+
         if (from <= 2) {
-            flag = false;
             System.out.println("Error.. from-number must be > 2");
+            flag = false;
         }
         if (to < from) {
-            flag = false;
             System.out.println("Error.. to-number must be >= from-number");
+            flag = false;
         }
         if (gap < 2) {
-            flag = false;
             System.out.println("Error.. gap must be >= 2");
+            flag = false;
         }
 
         return flag;
     }
 
-    // Only for tests
-    public static List<Integer> getFindGap(int gap, List<Integer> numbers) {
-        return findGap(gap, numbers);
+    private static String output(int from, int to, int gap) {
+        String result = "Result: " + findGap(gap, primes(from, to));
+
+        return result;
     }
 
-    public static List<Integer> getPrimes(int from, int to) {
-        return primes(from, to);
-    }
-    // --------------
-
-    public static void task(BufferedReader reader)  {
+    public static void task(BufferedReader reader) throws IOException, IllegalArgumentException {
         try {
             System.out.print("Enter from-number ( > 2 )\n> ");
             int from = Integer.parseInt(reader.readLine());
+
             System.out.print("Enter to-number ( >= from-number )\n> ");
             int to = Integer.parseInt(reader.readLine());
+
             System.out.print("Enter the gap ( >= 2)\n> ");
             int gap = Integer.parseInt(reader.readLine());
 
             if (validate(from, to, gap)) {
-                output(from, to, gap);
+                System.out.println(output(from, to, gap));
             } else {
                 task(reader);
             }
         } catch (IOException e) {
             System.out.println("Error.. try again");
             task(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. try again");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
             task(reader);
         }
     }
