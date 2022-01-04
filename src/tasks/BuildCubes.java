@@ -13,14 +13,12 @@ public class BuildCubes {
             n++;
             m = m - temp;
         } while (m > 0);
-
         if (m==0){
             return n;
         }
         else {
             return -1;
         }
-        //return (m == 0) ? n : -1;
     }
 
     public static void task(BufferedReader br) {
@@ -29,7 +27,11 @@ public class BuildCubes {
             long m = Long.parseLong(br.readLine());
             System.out.println("The result n = " + findNb(m));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. Input should be only numbers, not letters, symbols or fractional values!");
+            task(br);
         }
     }
 }

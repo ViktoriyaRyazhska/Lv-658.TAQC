@@ -4,6 +4,8 @@ import static java.util.stream.Stream.of;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Locale;
 import java.util.stream.DoubleStream;
 
 public class Rainfall {
@@ -19,6 +21,21 @@ public class Rainfall {
         return of(data.split("\n")).filter(s -> s.startsWith(town + ":"))
                 .flatMapToDouble(s -> of(s.replaceAll("[^\\d.]", " ").trim().split("\\s+")).mapToDouble(Double::parseDouble));
     }
+
+    private static boolean validate(String town) {
+        town = town.toLowerCase(Locale.ROOT);
+        boolean flag;
+        String string = "rome, london, paris, ny, vancouver, sydney, bangkok, tokyo, beijing, Lima";
+        if (!string.contains(town)){
+            System.err.println("Error! Your input doesn't belong to the list of specified cities!");
+            flag = false;
+        }
+        else {
+            flag = true;
+        }
+        return flag;
+    }
+
 
     public static void task(BufferedReader br) {
         try {
@@ -44,10 +61,15 @@ public class Rainfall {
             "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
             System.out.println("Choose the name of town [Rome / London / Paris / NY / Vancouver / Sydney / Bangkok / Tokyo / Beijing / Lima] :");
             String town = br.readLine();
-            System.out.println(mean(town, data));
-            System.out.println(variance(town, data));
+            if (validate(town)) {
+                System.out.println(mean(town, data));
+                System.out.println(variance(town, data));
+            } else {
+                task(br);
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error.. try again");
+            task(br);
         }
     }
 }

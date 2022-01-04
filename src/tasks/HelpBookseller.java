@@ -2,6 +2,7 @@ package tasks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +43,13 @@ public class HelpBookseller {
             lstOf1stLetter.toArray(simplelstOf1stLetter);
             System.out.println(stockSummary(simplelstOfArt, simplelstOf1stLetter));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Error.. Input isn't in good format!");
+            task(br);
         }
     }
 }
+// "ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"
+// "A", "B"

@@ -1,6 +1,7 @@
 package tasks;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class BalanceChecking {
 
@@ -52,11 +53,12 @@ public class BalanceChecking {
         try {
             int count = Integer.parseInt(br.readLine());
             if (count < 0) {
-                throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
+                System.out.println("Count can't be <= 0");
+                count = Integer.parseInt(br.readLine());
             }
             System.out.println("Please, enter the check book:");
             StringBuilder check = new StringBuilder();
-            String line = null;
+            String line;
             for (int i = 0; i < count + 1; i++) {
                 line = br.readLine();
                 check.append(line);
@@ -65,9 +67,11 @@ public class BalanceChecking {
             String check1 = check.toString();
             System.out.println("\n--- Your balance ---\n" + balance(check1));
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Error.. Input isn't in good format!");
+            task(br);
         }
     }
 }

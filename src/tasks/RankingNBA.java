@@ -1,6 +1,8 @@
 package tasks;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
 import static java.util.stream.Stream.of;
 
 public class RankingNBA {
@@ -51,7 +53,11 @@ public class RankingNBA {
         String toFind = br.readLine();
         System.out.println(nbaCup(sheet, toFind));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Error.. Input isn't in good format. It can't be numbers!");
+            task(br);
         }
     }
 }
