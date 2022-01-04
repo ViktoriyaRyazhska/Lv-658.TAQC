@@ -12,13 +12,23 @@ public class SumOfTerm {
         return String.format("%.2f", sum);
     }
 
+    public static String getSumOfTerm(int n) {
+        return sumOfTerm(n);
+    }
+
     public static void task(BufferedReader br) {
+        System.out.println("Please, enter the quantity of numbers by which we find the sum: ");
+        int inputQuantityNumbers = 0;
         try {
-            System.out.println("Please, enter the quantity of numbers by which we find the sum: ");
-            int inputQuantityNumbers = Integer. parseInt(br.readLine());
+            inputQuantityNumbers = Integer. parseInt(br.readLine());
             System.out.println("Sum is: " +  sumOfTerm(inputQuantityNumbers));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error.. try again");
+            task(br);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error.. not a number");
+            task(br);
         }
+
     }
 }

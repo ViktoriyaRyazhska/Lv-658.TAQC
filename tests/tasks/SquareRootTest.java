@@ -1,7 +1,13 @@
 package tasks;
 
-import static org.testng.Assert.*;
+import org.testng.annotations.Test;
 
 public class SquareRootTest {
+
+    @Test
+    public static void Test()
+    {
+
+    }
 
 }
