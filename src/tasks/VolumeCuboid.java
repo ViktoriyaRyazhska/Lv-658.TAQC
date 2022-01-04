@@ -26,7 +26,6 @@ public class VolumeCuboid {
             double length = Double.parseDouble(br.readLine());
             double width = Double.parseDouble(br.readLine());
             double height = Double.parseDouble(br.readLine());
-
             if (validate(length, width,height)) {
                 double volume = calculateVolume(length, width, height);
                 System.out.printf("length = %.2f; width = %.2f; height = %.2f ----> volume = %.2f \n", length, width, height, volume);
@@ -35,10 +34,10 @@ public class VolumeCuboid {
                 task(br);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error. Try again.");
             task(br);
         } catch (IllegalArgumentException e) {
-            System.out.println("No letters! You should enter number.");
+            System.out.println("Just integers & No Letters Please!");
             task(br);
         }
     }

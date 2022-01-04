@@ -10,9 +10,6 @@ public class SquareRoot {
         String[] str = line.trim().split("\\s+");
         for (int i = 0; i < sizeOfArray; i++) {
             array[i] = Integer.parseInt(str[i]);
-            if (array[i] < 0) {
-                throw new IllegalArgumentException("Only Positive Numbers!");
-            }
         }
         return array;
     }
@@ -44,28 +41,53 @@ public class SquareRoot {
         return newArray;
     }
 
+    private static boolean validateSize(int size) {
+        boolean flag = true;
+        if (size <= 0) {
+            flag = false;
+            System.out.println("Only Positive Numbers!");
+        }
+        return flag;
+    }
+
+    private static boolean validateArrayInput(int size, int[] array) {
+        boolean flag = true;
+        for (int i = 0; i < size; i++) {
+            if (array[i] < 0) {
+                System.out.println("Only Positive Numbers!");
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
     public static void task(BufferedReader br) {
         System.out.println("Please, enter size of an array:");
         try {
             int sizeOfArray = Integer.parseInt(br.readLine());
-            if (sizeOfArray <= 0) {
-                throw new IllegalArgumentException("Only Positive Numbers!");
-            }
-            System.out.printf("Please, enter array: ");
-            int array[] = new int[sizeOfArray];
-            arrayInput(br, sizeOfArray, array);
-
-            int[] newArray = new int[sizeOfArray];
-            arrayOutput(sizeOfArray, array, newArray);
-            System.out.printf("New array is: ");
-            for (int i = 0; i < sizeOfArray; i++) {
-                System.out.printf(newArray[i] + "  ");
+            if (validateSize(sizeOfArray)) {
+                System.out.print("Please, enter array: ");
+                int array[] = new int[sizeOfArray];
+                arrayInput(br, sizeOfArray, array);
+                if (validateArrayInput(sizeOfArray, array)) {
+                    int[] newArray = new int[sizeOfArray];
+                    arrayOutput(sizeOfArray, array, newArray);
+                    System.out.print("New array is: ");
+                    for (int i = 0; i < sizeOfArray; i++) {
+                        System.out.print(newArray[i] + "  ");
+                    }
+                    System.out.println();
+                } else {
+                    task(br);
+                }
+            } else {
+                task(br);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error. Try again.");
             task(br);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("No Letters Please!");
             task(br);
         }
     }
