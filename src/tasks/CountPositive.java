@@ -16,9 +16,9 @@ public class CountPositive {
     private static int[] arrayOutput(int sizeOfArray, int[] array, int[] newArray) {
         for (int i = 0; i < sizeOfArray; i++) {
             if (array == null || sizeOfArray == 0) {
-                newArray = new int[0];
+                newArray = new int[]{};
             }
-            if (array[i] >= 0) {
+            if (array[i] > 0) {
                 newArray[0] = newArray[0] + 1;
             } else {
                 newArray[1] = newArray[1] + array[i];
@@ -27,28 +27,39 @@ public class CountPositive {
         return newArray;
     }
 
+    private static boolean validateSize(int size) {
+        boolean flag = true;
+        if (size < 0) {
+            flag = false;
+            System.out.println("Only Positive Numbers!");
+        }
+        return flag;
+    }
+
     public static void task(BufferedReader br) {
         System.out.println("Please, enter size of an array:");
         try {
             int sizeOfArray = Integer.parseInt(br.readLine());
-            if (sizeOfArray <= 0) {
-                throw new IllegalArgumentException("Only Positive Numbers!");
-            }
-            System.out.printf("Please, enter array: ");
-            int array[] = new int[sizeOfArray];
-            arrayInput(br, sizeOfArray, array);
+            if (validateSize(sizeOfArray)) {
+                System.out.print("Please, enter array: ");
+                int array[] = new int[sizeOfArray];
+                arrayInput(br, sizeOfArray, array);
 
-            int[] newArray = new int[2];
-            arrayOutput(sizeOfArray, array, newArray);
-            System.out.printf("New array is: ");
-            for (int i = 0; i < 2; i++) {
-                System.out.printf(newArray[i] + "  ");
+                int[] newArray = new int[2];
+                arrayOutput(sizeOfArray, array, newArray);
+                System.out.print("New array is: ");
+                for (int i = 0; i < 2; i++) {
+                    System.out.printf(newArray[i] + "  ");
+                }
+                System.out.println();
+            } else {
+                task(br);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error. Try again.");
             task(br);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("No Letters Please!");
             task(br);
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Wrong format! Write an array with spaces.");
