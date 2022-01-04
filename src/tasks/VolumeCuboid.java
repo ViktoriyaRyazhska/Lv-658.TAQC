@@ -11,22 +11,34 @@ public class VolumeCuboid {
         return volume;
     }
 
+    private static boolean validate(double length, double width, double height) {
+        boolean flag = true;
+        if (length <= 0 || width <= 0 || height <= 0) {
+            flag = false;
+            System.out.println("Only Positive Numbers!");
+        }
+        return flag;
+    }
+
     public static void task(BufferedReader br) {
-        System.out.println("Please, enter sizes:");
+        System.out.println("Please, enter length, width, height one by one:");
         try {
             double length = Double.parseDouble(br.readLine());
             double width = Double.parseDouble(br.readLine());
             double height = Double.parseDouble(br.readLine());
-            double volume = calculateVolume(length, width, height);
-            if (length <= 0 || width <= 0 || height <= 0) {
-                throw new IllegalArgumentException("Only Positive Numbers & no Letters Please!");
+
+            if (validate(length, width,height)) {
+                double volume = calculateVolume(length, width, height);
+                System.out.printf("length = %.2f; width = %.2f; height = %.2f ----> volume = %.2f \n", length, width, height, volume);
             }
-            System.out.printf("length = %f; width = %f; height = %f ----> volume = %f", length, width, height, volume);
+            else {
+                task(br);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             task(br);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.out.println("No letters! You should enter number.");
             task(br);
         }
     }
