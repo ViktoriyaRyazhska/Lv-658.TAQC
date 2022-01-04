@@ -66,7 +66,7 @@ public class GapPrimes {
         return result;
     }
 
-    public static void task(BufferedReader reader) throws IOException, IllegalArgumentException {
+    public static void task(BufferedReader reader) {
         try {
             System.out.print("Enter from-number ( > 2 )\n> ");
             int from = Integer.parseInt(reader.readLine());
