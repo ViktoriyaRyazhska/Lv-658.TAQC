@@ -1,5 +1,5 @@
 package tasks;
-import java.unit.Scanner;
+import java.util.Scanner;
 
 public class SumOfTheFirstNthTermOfSeries {
     public static String seriesSum(int n) {

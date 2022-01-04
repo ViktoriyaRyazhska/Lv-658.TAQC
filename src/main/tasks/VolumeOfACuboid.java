@@ -1,10 +1,7 @@
 package tasks;
 
-import runapp.RunApp;
-
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class VolumeOfACuboid {
 
@@ -12,32 +9,24 @@ public class VolumeOfACuboid {
         return length * width * height;
     }
 
-    public static void conditionOfTask() {
-        System.out.println("Bob needs a fast way to calculate the volume of a cuboid with three values: length, width and the height of the cuboid.\n" +
-                " Write a function to help Bob with this calculation.");
-    }
-
-
     public static void runTask2(BufferedReader reader) throws IOException {
-        conditionOfTask();
         try {
             System.out.println("Set length ");
-            final float length = Float.parseFloat(new BufferedReader(new InputStreamReader(System.in)).readLine());
-            if (length < 0) {
+            final float length = Float.parseFloat(reader.readLine());
+            if (length <= 0) {
                 throw new IllegalArgumentException("Wrong value: Set a non-negative number");
             }
             System.out.println("Set width ");
-            final float width = Float.parseFloat(new BufferedReader(new InputStreamReader(System.in)).readLine());
-            if (width < 0) {
+            final float width = Float.parseFloat(reader.readLine());
+            if (width <= 0) {
                 throw new IllegalArgumentException("Wrong value: Set a non-negative number");
             }
             System.out.println("Set height ");
-            final float height = Float.parseFloat(new BufferedReader(new InputStreamReader(System.in)).readLine());
-            if (height < 0) {
+            final float height = Float.parseFloat(reader.readLine());
+            if (height <= 0) {
                 throw new IllegalArgumentException("Wrong value: Set a non-negative number");
             }
-            System.out.println("Volume of a Cuboid " + volumeOfCuboid(length, width, height));
-            RunApp.repeat(reader);
+            System.out.println("Volume of a Cuboid: " + volumeOfCuboid(length, width, height));
         } catch (NumberFormatException e) {
             System.out.println("Wrong value: Set digits");
             runTask2(reader);

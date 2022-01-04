@@ -1,7 +1,9 @@
 package tasks;
 
+import java.util.Scanner;
+
 public class BuildAPileOfCubes {
-}
+
     public static long findNb(long m) {
         long mm = 0;
         long n = 0;
@@ -22,3 +24,4 @@ public class BuildAPileOfCubes {
 //        findNb(10);
         System.out.println(findNb(input1));
     }
+}
