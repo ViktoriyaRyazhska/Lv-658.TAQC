@@ -44,7 +44,13 @@ public class PerimeterSquares {
         return result;
     }
 
+    public static String getOutput(int number){
+        return output(number);
+    }
 
+    public static boolean getValidate(int number){
+        return validate(number);
+    }
 
     public static void task(BufferedReader reader) {
         System.out.print("Enter a positive number:\n> ");
