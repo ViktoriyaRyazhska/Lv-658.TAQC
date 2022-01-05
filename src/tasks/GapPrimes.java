@@ -66,6 +66,14 @@ public class GapPrimes {
         return result;
     }
 
+    public static boolean getValidate(int from, int to, int gap){
+        return validate(from, to, gap);
+    }
+
+    public static String getOutput(int from, int to, int gap){
+        return output(from, to, gap);
+    }
+
     public static void task(BufferedReader reader) {
         try {
             System.out.print("Enter from-number ( > 2 )\n> ");
