@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 public class MilesToKilometers {
 
     static final float kmPerMile = 1.609344f;
@@ -30,6 +29,19 @@ public class MilesToKilometers {
         }
         return flag;
     }
+
+    public static float getMpgToKPL(float mpg){
+        return  mpgToKPL(mpg);
+    }
+    public static float getRoundFloat(float f, int places) {
+        return roundFloat(f, places);
+    }
+    public static boolean getValidate(float numberMPG){
+        return validate(numberMPG);
+    }
+
+
+
 
     public static void task(BufferedReader br) {
         System.out.println("Please, enter the number of miles per imperial gallon :");
