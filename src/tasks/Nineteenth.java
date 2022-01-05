@@ -1,7 +1,7 @@
 package tasks;
 
-import utill.ReadFromConsole;
 
+import utill.ReadFromConsole;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,5 +22,4 @@ public class Nineteenth {
         }
         return Math.abs(homeCounter - workCounter);
     }
-
 }

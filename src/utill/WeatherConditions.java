@@ -14,3 +14,4 @@ public enum WeatherConditions {
         return weatherConditions;
     }
 }
+
