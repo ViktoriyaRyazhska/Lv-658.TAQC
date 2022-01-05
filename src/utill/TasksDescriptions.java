@@ -8,7 +8,8 @@ public enum TasksDescriptions {
             "time = 3 ----> litres = 1\n" +
             "time = 6.7---> litres = 3\n" +
             "time = 11.8--> litres = 5"),
-    SECOND("Bob needs a fast way to calculate the volume of a cuboid with three values: length, width and the height of the cuboid.\n Write a function to help Bob with this calculation."),
+    SECOND("VOLUME OF A CUBOID \n" +
+            "Would you like to get the volume of a cuboid with three values: length, width and the height? "),
     THIRD("Sometimes, I want to quickly be able to convert miles per imperial gallon into kilometers per liter.\n" +
             "Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input).\n" +
             "Make sure to round off the result to two decimal points. If the answer ends with a 0, it should be rounded off without the 0. So instead of 5.50, we should get 5.5.\n" +
@@ -22,10 +23,66 @@ public enum TasksDescriptions {
             "The input array will always contain only positive numbers and will never be empty or null.\n" +
             "\n" +
             "The input array should not be modified!"),
+    FIFTH("Given an array of integers.\n" +
+            "\n" +
+            "Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.\n" +
+            "\n" +
+            "If the input array is empty or null, return an empty array.\n" +
+            "\n" +
+            "Example\n" +
+            "For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65]."),
+    SIXTH("CONVERT A STRING TO A NUMBER \n" +
+            "Would you like to transform a string into a number?"),
     SEVENTH("Wilson primes satisfy the following condition. Let P represent a prime number.\n" +
             "Then ((P-1)! + 1) / (P * P) should give a whole number.\n" +
             "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n"+
             "Please, enter number, which you want to check: "),
+    TENTH("""
+            LOOKING FOR A BENEFACTOR\s
+            Would you like to help an accountant John to calculate how much the next benefactor\s
+            should give to the association so that the average of the first n + 1 donations should reach the average?"""),
+    ELEVENTH("Your task is to write a function which returns the sum of following series upto nth term(parameter).\n" +
+            "Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...\n" +
+            "Rules:\n" +
+            "You need to round the answer to 2 decimal places and return it as String.\n" +
+            "If the given value is 0 then it should return 0.00\n" +
+            "You will only be given Natural Numbers as arguments.\n" +
+            "Examples:(Input --> Output)\n" +
+            "1 --> 1 --> \"1.00\"\n" +
+            "2 --> 1 + 1/4 --> \"1.25\"\n" +
+            "5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> \"1.57\""),
+    FOURTEENTH("""
+            EASY BALANCE CHECKING\s
+            Would you like to see the following report. The first line shows the original balance.\s
+            Each other line (when not blank) gives information: check number, category, check amount.
+             On each line of the report you will see the new balance\s
+            and then in the last two lines the total expense and the average expense."""),
+    FIFTEENTH("This function involves the subtraction of a pair of similar numbers when x is near 0 \n"
+            + "and the results are significantly erroneous in this region.\n"
+            + " Using pow instead of sqrt doesn't give better results.\n"
+            + "A \"good\" answer is 4.99999999999999875... * 1e-16.\n" +
+            "Can you modify f(x) to give a good approximation of f(x) in the neighborhood of 0?"),
+    EIGHTEENTH("HELP THE BOOKSELLER \n" +
+            "Would you like to help the bookseller to put in order a book stocklist?"),
+    NINETEENTH("Each morning a man walks to work, and each afternoon he walks back home.\n"
+            + "If it is raining in the morning and he has an umbrella at home, he takes an umbrella for the journey\n"
+            + "so he doesn't get wet, and stores it at work. Likewise, if it is raining in the afternoon \n"
+            + "and he has an umbrella at work, he takes an umbrella for the journey home.\n"
+            + "Given an array of the weather conditions, your task is to work out the minimum number of umbrellas he needs\n"
+            + "to start with in order that he never gets wet. He can start with some umbrellas at home and some at work,\n"
+            + "but the output is a single integer, the minimum total number.\n"
+            + "The input is an array/list of consecutive half-day weather forecasts. So, e.g. the first value is the 1st day's morning weather\n"
+            + "and the second value is the 1st day's afternoon weather. \n"
+            + "The options are \"clear\", \"sunny\", \"cloudy\", \"rainy\", \"windy\" or \"thunderstorms\"."),
+    TWENTYSECOND("PERIMETER OF SQUARES IN A RECTANGLE \n" +
+            "Would you like to get the sum of the perimeters of all the squares in a rectangle when there are n + 1 squares?"),
+    TWENTYTHIRD("Consider the sequence U(n, x) = x + 2x**2 + 3x**3 + .. + nx**n where x is a real number and n a positive integer.\n" +
+            "When n goes to infinity and x has a correct value (ie x is in its domain of convergence D), U(n, x) goes to a finite limit m depending on x.\n" +
+            "Usually given x we try to find m. Here we will try to find x (x real, 0 < x < 1) when m is given (m real, m > 0).\n" +
+            "Let us call solve the function solve(m) which returns x such as U(n, x) goes to m when n goes to infinity.\n" +
+            "Examples:\n" +
+            "solve(2.0) returns 0.5 since U(n, 0.5) goes to 2 when n goes to infinity.\n" +
+            "solve(8.0) returns 0.7034648345913732 since U(n, 0.7034648345913732) goes to 8 when n goes to infinity."),
     EXIT("The End! Thank You!");
     private String description;
     private TasksDescriptions( String description)
