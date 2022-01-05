@@ -1,10 +1,10 @@
 package utill;
 
 public enum TasksDescriptions {
-    FIRST("Nathan loves cycling.\n "+
+    FIRST("Nathan loves cycling.\n " +
             "Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.\n" +
             "You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.\n" +
-            "For example:\n"+
+            "For example:\n" +
             "time = 3 ----> litres = 1\n" +
             "time = 6.7---> litres = 3\n" +
             "time = 11.8--> litres = 5"),
@@ -13,7 +13,7 @@ public enum TasksDescriptions {
     THIRD("Sometimes, I want to quickly be able to convert miles per imperial gallon into kilometers per liter.\n" +
             "Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input).\n" +
             "Make sure to round off the result to two decimal points. If the answer ends with a 0, it should be rounded off without the 0. So instead of 5.50, we should get 5.5.\n" +
-            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n"+
+            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n" +
             "Please, enter miles per gallon to convert into kilometers per liter : "),
     FOURTH("#To square(root) or not to square(root)\n" +
             "Write a method, that will get an integer array as parameter and will process every number from this array.\n" +
@@ -35,7 +35,7 @@ public enum TasksDescriptions {
             "Would you like to transform a string into a number?"),
     SEVENTH("Wilson primes satisfy the following condition. Let P represent a prime number.\n" +
             "Then ((P-1)! + 1) / (P * P) should give a whole number.\n" +
-            "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n"+
+            "Your task is to create a function that returns true if the given number is a Wilson prime.\n\n" +
             "Please, enter number, which you want to check: "),
     TENTH("""
             LOOKING FOR A BENEFACTOR\s
@@ -85,11 +85,12 @@ public enum TasksDescriptions {
             "solve(8.0) returns 0.7034648345913732 since U(n, 0.7034648345913732) goes to 8 when n goes to infinity."),
     EXIT("The End! Thank You!");
     private String description;
-    private TasksDescriptions( String description)
-    {
+
+    private TasksDescriptions(String description) {
         this.description = description;
     }
 
     public void getDescription() {
-        System.out.println(description);    }
+        System.out.println(description);
+    }
 }

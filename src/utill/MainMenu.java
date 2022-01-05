@@ -4,6 +4,7 @@ import tasks.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import static tasks.Fifth.count;
 
 public class MainMenu {
 
@@ -13,7 +14,11 @@ public class MainMenu {
             numb = ReadFromConsole.getTaskNumber();
             switch (numb) {
                 case (0) -> TasksDescriptions.EXIT.getDescription();
-                case (1) -> TasksDescriptions.FIRST.getDescription();
+                case (1) -> {
+                    TasksDescriptions.FIRST.getDescription();
+                    float time = ReadFromConsole.getFloatNumber();
+                    System.out.println(First.count(time));
+                }
                 case (2) -> {
                     TasksDescriptions.SECOND.getDescription();
                     System.out.println("Bob, please, enter the length of cuboid:");
@@ -26,8 +31,7 @@ public class MainMenu {
                 }
                 case (3) -> {
                     TasksDescriptions.THIRD.getDescription();
-                    float mpg = ReadFromConsole.getFloatNumber();
-                    System.out.println(Third.mpgToKPM(mpg));
+                    System.out.println(Third.mpgToKPM(ReadFromConsole.getFloatNumber()));
                 }
                 case (4) -> TasksDescriptions.FOURTH.getDescription();
                 case (5) -> {

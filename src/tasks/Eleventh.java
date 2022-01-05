@@ -16,4 +16,3 @@ public class Eleventh {
         return df.format(sum).replace(',', '.');
     }
 }
-
