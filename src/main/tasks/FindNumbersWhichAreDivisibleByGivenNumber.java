@@ -9,59 +9,52 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-    public class FindDivisibleBy {
-        public static void conditionOfTask() {
-            System.out.println("Complete the function which takes two arguments and returns all " +
-                    "numbers which are divisible by the given divisor. First argument is " +
-                    "an array of numbers and the second is the divisor." );
-        }
+public class FindNumbersWhichAreDivisibleByGivenNumber {
+
         public static void runTask9(BufferedReader reader) throws IOException {
-            conditionOfTask();
-            FindDivisibleBy test4 = new FindDivisibleBy();
+
+//            FindDivisibleBy test4 = new FindDivisibleBy();
 
             ArrayList first = new ArrayList();
             ArrayList second = new ArrayList();
 
             boolean bool = true;
+            System.out.println("Type value for numbers arr or type 'q' for exit");
             while (bool){
-                System.out.println("enter value");
-                String i = reader.readLine();
-                if(i.equals("q")){
-                    System.out.println("exit");
-                    bool=false;
-                }else if(i.equals("n")){
-                    System.out.println("enter val fot second arr");
-                    String j = reader.readLine();
-                    second.add(Integer.parseInt(j));
-                    bool=false;
-                }else{
-                    System.out.println("enter val fot first arr");
-                    first.add(Integer.parseInt(i));
+                try{
+                    String i = reader.readLine();
+                    if(i.equals("q")){
+                        System.out.println("exit");
+                        bool=false;
+                    }else if(i.equals("n")){
+                        System.out.println("Type value for divisor arr");
+                        String j = reader.readLine();
+                        second.add(Integer.parseInt(j));
+                        bool=false;
+                    }else{
+                        System.out.println("Type value for numbers arr or 'n' for divisor" +
+                                " or type 'q' for exit ");
+                        first.add(Integer.parseInt(i));
+                    }
+                }catch (Exception ex){
+                    System.out.println(ex.getMessage()+"Type only integer number of 'q' or 'n'");
                 }
-//            System.out.println(test4.funct(first,second));
+
             }
-            ArrayList res = test4.funct(first,second);
-            System.out.println(res);
+//            ArrayList res = test4.funct(first,second);
+//            System.out.println(res);
+            System.out.println(funct(first,second));
         }
 
-        public ArrayList funct(ArrayList x, ArrayList y){
+        public ArrayList funct(List <Integer> x, ArrayList y){
             ArrayList z= new ArrayList<>();
+//        List <Integer> z;
             boolean bool = true;
             try{
-                for(int i=0;i<=x.size();i++){
-                    String x1 = x.get(i).toString();
-                    String y1 = y.get(0).toString();
-                    int x2 = Integer.parseInt(x1);
-                    int y2 = Integer.parseInt(y1);
-                    if(x2%y2==0){
-                        z.add(x2);
-                    }
-                }
+                x.stream().filter(i-> i%2==0).forEach(i -> z.add(i));
             }catch (Exception ex){
                 System.out.println(ex.getMessage());
             }
             return z;
         }
     }
-
-}

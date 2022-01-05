@@ -6,58 +6,44 @@ import java.util.ArrayList;
 
 
 public class LookingForABenefactor {
-    public static void main(String args[]) {
+    public static void runTask10(BufferedReader reader) throws IOException {
+        conditionOfTask();
+        Test4 test4 = new Test4();
 
-        System.out.println("are you ?:y/n");
-        Scanner Scan = new Scanner(System.in);
-        String input1 = Scan.nextLine();
+        List <Integer> first = new ArrayList();
+        List <Integer> second = new ArrayList();
 
-        if(input1.equals("n")){
-            System.out.println("exit");
-        }else if(input1.equals("y")){
-            boolean s = true;
-            boolean ss = true;
-
-            List<Integer> dons = new ArrayList<>();
-            int navg = 0;
-            while (ss) {
-                while (s) {
-                    try {
-                        System.out.println("enter value for dons or press t and enter for navg or press q for exit:");
-                        input1 = Scan.next();
-                        if(input1.equals("q")){
-                            System.out.println("exit");
-                            s = false;
-                        }else if(input1.equals("t")){
-                            System.out.println("press value for navg or q for exit:");
-                            int input2 = Scan.nextInt();
-                            navg = input2;
-                            s = false;
-                        }else{
-                            dons.add(Integer.parseInt(input1));
-                            System.out.println(dons);
-                        }
-                    } catch (NumberFormatException ex) {
-                        ex.printStackTrace();
-                        System.out.println("ValueError or invalid_argument or argument-error or DomainError");
-                    }
-
-                }
-//
-                int SumOfDons = 0;
-                for (int i : dons){
-                    SumOfDons += i;
-                }
-                int newAvg = navg * (dons.size()+1) - SumOfDons;
-
-                System.out.println(newAvg);
-                ss=false;
+        boolean bool = true;
+        while (bool){
+            System.out.println("Type your choice, donation or 'q' for exit or 'n' for set average");
+            String i = reader.readLine();
+            if(i.equals("q")){
+                System.out.println("exit");
+                bool=false;
+            }else if(i.equals("n")){
+                System.out.println("Please type average value");
+                String j = reader.readLine();
+                second.add(Integer.parseInt(j));
+                bool=false;
+            }else{
+                System.out.println("Please type your donation ");
+                first.add(Integer.parseInt(i));
             }
-//
-        }else{
-            System.out.println("error");
         }
+        System.out.println("Last donation should be "+test4.funct(first,second)+". Thanks");
+    }
 
+    public List funct(List <Integer> x, List <Integer> y){
+        List z= new ArrayList<>();
 
+        try{
+            Integer SumOfDons = x.stream()
+                    .reduce(0, Integer::sum);
+            int newAvg = y.get(0) * (x.size()+1) - SumOfDons;
+            z.add(newAvg);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage()+"error");
+        }
+        return z;
     }
 }
