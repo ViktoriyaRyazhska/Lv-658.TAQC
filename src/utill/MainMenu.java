@@ -1,10 +1,10 @@
 package utill;
-
 import tasks.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import static tasks.Fifth.count;
+import static tasks.Ninth.divideBy;
 
 public class MainMenu {
 
@@ -112,9 +112,35 @@ public class MainMenu {
                     System.out.println("Enter double m: ");
                     System.out.println(Twentythird.solve(ReadFromConsole.getDoubleNumber()));
                 }
+                case (9) -> {
+                    TasksDescriptions.NINTH.getDescription();
+                    System.out.println("Input array length");
+                    int arrayLength = ReadFromConsole.getIntNumber();
+                    int[] array = new int[arrayLength];
+                    for (int i = 0; i < arrayLength; i++) {
+                        System.out.println("Input value "+ i);
+                        array[i] = ReadFromConsole.getIntNumber();
+                    }
+                    System.out.println("Input divisor");
+                    int divisor = ReadFromConsole.getIntNumber();
+                    System.out.println(Arrays.toString(divideBy(array,divisor)));
+                }
+                case(13)->{
+                    TasksDescriptions.THIRTEEN.getDescription();
+                    System.out.println("Enter the total volume of building: ");
+                    long totalVolume = ReadFromConsole.getIntNumber();
+                    System.out.print("Number of cubes: "+Thirteen.countAmount(totalVolume));
+                }
+                case(21)->{
+                    TasksDescriptions.TWENTY_FIRST.getDescription();
+                    System.out.println("Enter the number: ");
+                    int z = ReadFromConsole.getIntNumber();
+                    System.out.println(TwentyFirst.zeros(z));
+                }
+
                 default -> System.out.println("Incorrect input!");
             }
 
-        } while (numb != 0);
+        }while (numb !=0);
     }
 }

@@ -1,19 +1,18 @@
 package utill;
 
 public enum TasksDescriptions {
-    FIRST("Nathan loves cycling.\n " +
+    FIRST("Nathan loves cycling.\n "+
             "Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.\n" +
             "You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.\n" +
-            "For example:\n" +
+            "For example:\n"+
             "time = 3 ----> litres = 1\n" +
             "time = 6.7---> litres = 3\n" +
             "time = 11.8--> litres = 5"),
-    SECOND("VOLUME OF A CUBOID \n" +
-            "Would you like to get the volume of a cuboid with three values: length, width and the height? "),
+    SECOND("Bob needs a fast way to calculate the volume of a cuboid with three values: length, width and the height of the cuboid.\n Write a function to help Bob with this calculation."),
     THIRD("Sometimes, I want to quickly be able to convert miles per imperial gallon into kilometers per liter.\n" +
             "Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input).\n" +
             "Make sure to round off the result to two decimal points. If the answer ends with a 0, it should be rounded off without the 0. So instead of 5.50, we should get 5.5.\n" +
-            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n" +
+            "Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres\n\n"+
             "Please, enter miles per gallon to convert into kilometers per liter : "),
     FOURTH("#To square(root) or not to square(root)\n" +
             "Write a method, that will get an integer array as parameter and will process every number from this array.\n" +
@@ -83,6 +82,24 @@ public enum TasksDescriptions {
             "Examples:\n" +
             "solve(2.0) returns 0.5 since U(n, 0.5) goes to 2 when n goes to infinity.\n" +
             "solve(8.0) returns 0.7034648345913732 since U(n, 0.7034648345913732) goes to 8 when n goes to infinity."),
+    NINTH("Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.\n" +
+            "\n" +
+            "Example\n" +
+            "divisibleBy([1, 2, 3, 4, 5, 6], 2) == [2, 4, 6]"),
+    THIRTEEN("Your task is to construct a building which will be a pile of n cubes. The cube at the bottom will have a volume of n^3, the cube above will have volume of (n-1)^3 and so on until the top which will have a volume of 1^3.\n" +
+            "\n" +
+            "You are given the total volume m of the building. Being given m can you find the number n of cubes you will have to build?\n" +
+            "\n" +
+            "The parameter of the function findNb (find_nb, find-nb, findNb, ...) will be an integer m and you have to return the integer n such as n^3 + (n-1)^3 + ... + 1^3 = m if such a n exists or -1 if there is no such n.\n" +
+            "\n" +
+            "Examples:\n" +
+            "findNb(1071225) --> 45\n" +
+            "\n" +
+            "findNb(91716553919377) --> -1"),
+    TWENTY_FIRST("Write a program that will calculate the number of trailing zeros in a factorial of a given number.\n" +
+            "\n" +
+            "N! = 1 * 2 * 3 * ... * N"),
+
     EXIT("The End! Thank You!");
     private String description;
 
