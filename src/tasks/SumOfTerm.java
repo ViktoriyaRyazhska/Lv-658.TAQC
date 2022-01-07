@@ -29,6 +29,5 @@ public class SumOfTerm {
             System.out.println("Error.. not a number");
             task(br);
         }
-
     }
 }
