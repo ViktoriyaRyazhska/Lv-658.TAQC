@@ -30,6 +30,13 @@ public class TrailingZeros {
         return flag;
     }
 
+    public static int getFindZeros(int number) {
+        return findZeros(number);
+    }
+    public static boolean getValidate(int number){
+        return validate(number);
+    }
+
     public static void task(BufferedReader reader) {
         System.out.print("Enter a positive number:\n> ");
         try {

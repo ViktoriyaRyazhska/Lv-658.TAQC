@@ -14,25 +14,32 @@ public class FloatingPoint {
 
     private static boolean validate(double x) {
         boolean flag;
-        if (x < -1){
+        if (x < -1) {
             System.err.println("If the argument is less than -1, then the result is NaN!");
             flag = false;
-        }
-        else if (x == 0){
+        } else if (x == 0) {
             System.err.println("If the argument is 0, then the result is 0!");
             flag = false;
-        }
-        else {
+        } else {
             flag = true;
         }
         return flag;
     }
+
+    public static double getF(double x) {
+        return f(x);
+    }
+
+    public static boolean getValidate(double x) {
+        return validate(x);
+    }
+
     public static void task(BufferedReader br) {
         System.out.println("Please, enter x for approximation of function:");
         try {
             double x = Double.parseDouble(br.readLine());
             if (validate(x)) {
-                System.out.println("F(x) = "+ f(x));
+                System.out.println("F(x) = " + f(x));
             } else {
                 task(br);
             }
