@@ -10,8 +10,7 @@ public class FormattingDecimal {
         return  Double.valueOf(df.format(number));
     }
 
-    public static Double getFormatting(double number)
-    {
+    public static Double getFormatting(double number) {
         return formatting(number);
     }
 
@@ -43,6 +42,5 @@ public class FormattingDecimal {
             System.out.println("Error.. not a number");
             task(br);
         }
-
     }
 }

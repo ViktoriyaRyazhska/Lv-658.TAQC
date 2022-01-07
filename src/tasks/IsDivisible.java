@@ -56,7 +56,5 @@ public class IsDivisible {
             System.out.println("Error.. not a number");
             task(br);
         }
-
-
     }
 }

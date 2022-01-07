@@ -8,11 +8,12 @@ public class LookingBenefactor {
     private static Double expectedAmountOfMoney(double[] arr, double averageAmountDonations ) {
         return averageAmountDonations*(arr.length+1) - Arrays.stream(arr).sum();
     }
+
     public static Double getExpectedAmountOfMoney(double[] arr, double averageAmountDonations ) {
-        return expectedAmountOfMoney(arr,averageAmountDonations);
+        return expectedAmountOfMoney(arr, averageAmountDonations);
     }
-    private static boolean validate(double[] arr, double averageAmountDonations)
-    {
+
+    private static boolean validate(double[] arr, double averageAmountDonations) {
         boolean flag = true;
         if(Arrays.stream(arr).allMatch(i -> i < 0)) {
             flag = false;
@@ -22,7 +23,6 @@ public class LookingBenefactor {
     }
 
     public static void task(BufferedReader br) {
-
         System.out.println("Please, enter the quantity of donations: ");
         int size = 0;
         try {

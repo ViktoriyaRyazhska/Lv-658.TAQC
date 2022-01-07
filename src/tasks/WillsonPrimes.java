@@ -51,7 +51,6 @@ public class WillsonPrimes {
     }
 
     public static void task(BufferedReader br) {
-
         System.out.println("Please, enter the number:");
         int number = 0;
         try {
@@ -75,7 +74,6 @@ public class WillsonPrimes {
             System.out.println("Error.. not a number");
             task(br);
         }
-
     }
 }
 
