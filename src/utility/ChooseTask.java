@@ -58,7 +58,7 @@ public class ChooseTask extends Constants {
         try {
             switch (task) {
                 default:
-                    throw new IllegalArgumentException("Error.. this option doesn`t exist");
+                    throw new NumberFormatException("Error.. this option doesn`t exist");
                 case NEXT:
                     LIST++;
                     runTaskSecond(reader, chooseTask(reader));
@@ -104,16 +104,16 @@ public class ChooseTask extends Constants {
                     break;
             }
         } catch (IOException e) {
-            System.err.println("Error.. try again");
+            System.out.println("Error.. try again");
             runTaskFirst(reader, TASK);
 
         } catch (NumberFormatException e) {
-            System.err.println(e.getMessage());
-            runTaskFirst(reader, TASK);
+            System.out.println(e.getMessage());
+            runTaskFirst(reader, chooseTask(reader));
 
         } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
-            runTaskFirst(reader, chooseTask(reader));
+            System.out.println(e.getMessage());
+            runTaskFirst(reader, TASK);
         }
     }
 
@@ -121,7 +121,7 @@ public class ChooseTask extends Constants {
         try {
             switch (task) {
                 default:
-                    throw new IllegalArgumentException("Error.. this option doesn`t exist");
+                    throw new NumberFormatException("Error.. this option doesn`t exist");
                 case NEXT:
                     LIST++;
                     runTaskThird(reader, chooseTask(reader));
@@ -176,11 +176,11 @@ public class ChooseTask extends Constants {
 
         } catch (NumberFormatException e) {
             System.err.println(e.getMessage());
-            runTaskSecond(reader, TASK);
+            runTaskSecond(reader, chooseTask(reader));
 
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
-            runTaskSecond(reader, chooseTask(reader));
+            runTaskSecond(reader, TASK);
         }
     }
 
@@ -188,7 +188,7 @@ public class ChooseTask extends Constants {
         try {
             switch (task) {
                 default:
-                    throw new IllegalArgumentException("Error.. this option doesn`t exist");
+                    throw new NumberFormatException("Error.. this option doesn`t exist");
                 case PREV:
                     LIST--;
                     runTaskSecond(reader, chooseTask(reader));
@@ -226,11 +226,11 @@ public class ChooseTask extends Constants {
 
         } catch (NumberFormatException e) {
             System.err.println(e.getMessage());
-            runTaskThird(reader, TASK);
+            runTaskThird(reader, chooseTask(reader));
 
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
-            runTaskThird(reader, chooseTask(reader));
+            runTaskThird(reader, TASK);
         }
     }
 }
