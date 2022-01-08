@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CountPositive {
+
     private static int[] arrayInput(BufferedReader br, int sizeOfArray, int[] array) throws IOException {
         String line = br.readLine();
         String[] str = line.trim().split("\\s+");

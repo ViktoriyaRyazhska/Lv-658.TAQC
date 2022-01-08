@@ -45,6 +45,10 @@ public class RankingNBA {
         }
     }
 
+    public static String getNbaCup(String resultSheet, String toFind) {
+        return nbaCup(resultSheet, toFind);
+    }
+
     public static void task(BufferedReader br) {
         try {
         System.out.println("Enter result sheet: ");
