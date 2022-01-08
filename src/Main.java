@@ -12,8 +12,6 @@ public class Main {
             ChooseTask.runTaskFirst(reader, ChooseTask.chooseTask(reader));
         } catch (IOException e) {
             System.err.println(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
         }
     }
 }
