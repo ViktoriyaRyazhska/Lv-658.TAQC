@@ -8,6 +8,12 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        ChooseTask.runFirst(reader, ChooseTask.chooseTask(reader));
+        try {
+            ChooseTask.runTaskFirst(reader, ChooseTask.chooseTask(reader));
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        }
     }
 }
