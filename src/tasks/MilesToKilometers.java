@@ -21,46 +21,25 @@ public class MilesToKilometers {
         return bigDecimal.floatValue();
     }
 
-    private static boolean validate(float numberMPG) {
-        boolean flag = true;
-        if (numberMPG < 0) {
-            flag = false;
-            System.out.println("Only Positive Numbers!");
-        }
-        return flag;
-    }
-
     public static float getMpgToKPL(float mpg){
         return  mpgToKPL(mpg);
     }
     public static float getRoundFloat(float f, int places) {
         return roundFloat(f, places);
     }
-    public static boolean getValidate(float numberMPG){
-        return validate(numberMPG);
-    }
 
-
-
-
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter the number of miles per imperial gallon :");
-        try {
-            float numberMPG = Float.parseFloat(br.readLine());
-            if (validate(numberMPG)) {
+
+        float numberMPG = Float.parseFloat(br.readLine());
+        if (numberMPG < 0) {
+           throw  new IllegalArgumentException("Only Positive Numbers!");
+        }
+           else {
                 float numberLPK = mpgToKPL(numberMPG);
                 System.out.println("Miles per Gallon = " + roundFloat(numberMPG, 2));
                 System.out.println("Kilometers per Liter = " + roundFloat(numberLPK, 2));
             }
-            else{
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error. Try again.");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("No letters! You should enter number.");
-            task(br);
-        }
+
     }
 }

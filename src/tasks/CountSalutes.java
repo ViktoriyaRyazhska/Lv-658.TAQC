@@ -7,16 +7,13 @@ import java.util.regex.Pattern;
 
 public class CountSalutes {
     private static long countSalutes(String linePeople) {
-        char temp;
-        long salutes=0;
+        long salutes;
         long sumSalutes=0;
-
-        for (int i = 0; i < linePeople.length(); i++) {
-            temp = linePeople.charAt(i);
-            if (temp == '>') {
+        for(char c : linePeople.toCharArray()) {
+            if (c == '>') {
                 linePeople = linePeople.substring(linePeople.indexOf('>') + 1);
                 salutes = linePeople.chars().filter(ch -> ch == '<').count();
-                sumSalutes = sumSalutes + salutes;
+                sumSalutes += salutes;
             }
         }
         return sumSalutes * 2;
