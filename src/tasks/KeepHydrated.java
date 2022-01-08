@@ -20,6 +20,15 @@ public class KeepHydrated {
         return flag;
     }
 
+    public static int getNumberOfLitres(double time) {
+        return numberOfLitres(time);
+    }
+
+    public static boolean getValidate(double time) {
+        return validate(time);
+    }
+
+
     public static void task(BufferedReader br) {
         System.out.println("Please, enter the time:");
         try {

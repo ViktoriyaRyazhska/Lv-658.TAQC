@@ -60,8 +60,22 @@ public class SquareRoot {
         }
         return flag;
     }
+    public static boolean getIsPerfectSquare(int n) {
+        return isPerfectSquare(n);
+    }
+    public static int[] getArrayOutput(int sizeOfArray, int[] array, int[] newArray) {
+        return arrayOutput(sizeOfArray,array,newArray);
+    }
+    public static boolean getValidateSize(int size) {
+        return validateSize(size);
+    }
+    public static boolean getValidateArrayInput(int size, int[] array) {
+        return validateArrayInput(size,array);
+    }
 
-    public static void task(BufferedReader br) {
+
+
+        public static void task(BufferedReader br) {
         System.out.println("Please, enter size of an array:");
         try {
             int sizeOfArray = Integer.parseInt(br.readLine());

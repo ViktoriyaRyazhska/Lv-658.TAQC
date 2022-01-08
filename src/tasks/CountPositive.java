@@ -16,7 +16,7 @@ public class CountPositive {
 
     private static int[] arrayOutput(int sizeOfArray, int[] array, int[] newArray) {
         for (int i = 0; i < sizeOfArray; i++) {
-            if (array == null || sizeOfArray == 0) {
+            if (array == null) {
                 newArray = new int[]{};
             }
             if (array[i] > 0) {
@@ -35,6 +35,15 @@ public class CountPositive {
             System.out.println("Only Positive Numbers!");
         }
         return flag;
+    }
+    public  static boolean getValidateSize(int size) {
+        return validateSize(size);
+    }
+    public static int[] getArrayOutput(int sizeOfArray, int[] array, int[] newArray) {
+    return arrayOutput(sizeOfArray,array,newArray);
+    }
+    public static int[] getArrayInput(BufferedReader br, int sizeOfArray , int[] array) throws IOException {
+    return arrayInput(br,sizeOfArray,array);
     }
 
     public static void task(BufferedReader br) {

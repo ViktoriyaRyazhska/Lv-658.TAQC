@@ -19,8 +19,16 @@ public class VolumeCuboid {
         }
         return flag;
     }
+    public static double getCalculateVolume(double length, double width, double height) {
+        return calculateVolume(length,width,height);
+    }
+    public static boolean getValidate(double length, double width, double height) {
+        return validate(length,width,height);
+    }
 
-    public static void task(BufferedReader br) {
+
+
+        public static void task(BufferedReader br) {
         System.out.println("Please, enter length, width, height one by one:");
         try {
             double length = Double.parseDouble(br.readLine());
