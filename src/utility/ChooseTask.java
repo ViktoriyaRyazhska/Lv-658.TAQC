@@ -9,10 +9,6 @@ public class ChooseTask extends Constants {
     private static int TASK;
     private static int LIST = 1;
 
-    public static int getTASK() {
-        return TASK;
-    }
-
     public static int chooseTask(BufferedReader reader) throws IOException, NumberFormatException {
         switch (LIST) {
             case 1:
