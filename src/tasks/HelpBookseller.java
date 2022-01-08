@@ -21,6 +21,10 @@ public class HelpBookseller {
         return "";
     }
 
+    public static String getStockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+        return stockSummary(lstOfArt, lstOf1stLetter);
+    }
+
     public static void task(BufferedReader br) {
         try {
             System.out.println("Enter stocklist: ");
