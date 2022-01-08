@@ -41,24 +41,6 @@ public class GapPrimes {
         return result;
     }
 
-    private static boolean validate(int from, int to, int gap) {
-        boolean flag = true;
-
-        if (from <= 2) {
-            System.out.println("Error.. from-number must be > 2");
-            flag = false;
-        }
-        if (to < from) {
-            System.out.println("Error.. to-number must be >= from-number");
-            flag = false;
-        }
-        if (gap < 2) {
-            System.out.println("Error.. gap must be >= 2");
-            flag = false;
-        }
-
-        return flag;
-    }
 
     private static String output(int from, int to, int gap) {
         String result = "Result: " + findGap(gap, primes(from, to));
@@ -66,36 +48,29 @@ public class GapPrimes {
         return result;
     }
 
-    public static boolean getValidate(int from, int to, int gap){
-        return validate(from, to, gap);
-    }
-
     public static String getOutput(int from, int to, int gap){
         return output(from, to, gap);
     }
 
-    public static void task(BufferedReader reader) {
-        try {
-            System.out.print("Enter from-number ( > 2 )\n> ");
-            int from = Integer.parseInt(reader.readLine());
-
-            System.out.print("Enter to-number ( >= from-number )\n> ");
-            int to = Integer.parseInt(reader.readLine());
-
-            System.out.print("Enter the gap ( >= 2)\n> ");
-            int gap = Integer.parseInt(reader.readLine());
-
-            if (validate(from, to, gap)) {
-                System.out.println(output(from, to, gap));
-            } else {
-                task(reader);
-            }
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(reader);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error.. not a number");
-            task(reader);
+    public static void task(BufferedReader reader) throws IOException, IllegalArgumentException {
+        System.out.print("Enter from-number ( > 2 )\n> ");
+        int from = Integer.parseInt(reader.readLine());
+        if (from <= 2) {
+            throw new IllegalArgumentException("Error.. from-number must be > 2");
         }
+
+        System.out.print("Enter to-number ( >= from-number )\n> ");
+        int to = Integer.parseInt(reader.readLine());
+        if (to < from) {
+            throw new IllegalArgumentException("Error.. to-number must be >= from-number");
+        }
+
+        System.out.print("Enter the gap ( >= 2)\n> ");
+        int gap = Integer.parseInt(reader.readLine());
+        if (gap < 2) {
+            throw new IllegalArgumentException("Error.. gap must be >= 2");
+        }
+
+        output(from, to, gap);
     }
 }
