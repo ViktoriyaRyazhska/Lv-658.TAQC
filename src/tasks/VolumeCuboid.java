@@ -11,23 +11,20 @@ public class VolumeCuboid {
         return volume;
     }
 
-
     public static double getCalculateVolume(double length, double width, double height) {
-        return calculateVolume(length,width,height);
+        return calculateVolume(length, width, height);
     }
 
-        public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter length, width, height one by one:");
-
         double length = Double.parseDouble(br.readLine());
         double width = Double.parseDouble(br.readLine());
         double height = Double.parseDouble(br.readLine());
         if (length <= 0 || width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Only Positive Numbers!");
         }
+
         double volume = calculateVolume(length, width, height);
         System.out.printf("length = %.2f; width = %.2f; height = %.2f ----> volume = %.2f \n", length, width, height, volume);
-
-
     }
 }

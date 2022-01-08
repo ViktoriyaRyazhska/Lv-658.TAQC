@@ -16,11 +16,11 @@ public class StringToNumber {
         return str != null && str.matches("^(\\+|-)?\\d+$");
     }
 
-    public static boolean getIsNumeric(String str){
+    public static boolean getIsNumeric(String str) {
         return isNumeric(str);
     }
 
-    public static int getConvert(String str){
+    public static int getConvert(String str) {
         return convert(str);
     }
 
@@ -28,10 +28,9 @@ public class StringToNumber {
         System.out.println("Please, enter the number:");
         String numberStr = br.readLine();
         if (!isNumeric(numberStr)) {
-            throw  new IllegalArgumentException("Just integers & No Letters Please!");
-         }
+            throw new IllegalArgumentException("Just integers & No Letters Please!");
+        }
         int number = convert(numberStr);
         System.out.printf(" '%s' ----> %d \n", numberStr, number);
-
     }
 }

@@ -32,7 +32,6 @@ public class MilesToKilometers {
 
     public static void task(BufferedReader br) throws IOException, IllegalArgumentException {
         System.out.println("Please, enter the number of miles per imperial gallon :");
-
         float numberMPG = Float.parseFloat(br.readLine());
         if (numberMPG < 0) {
             throw new IllegalArgumentException("Only Positive Numbers!");
@@ -41,6 +40,5 @@ public class MilesToKilometers {
         float numberLPK = mpgToKPL(numberMPG);
         System.out.println("Miles per Gallon = " + roundFloat(numberMPG, 2));
         System.out.println("Kilometers per Liter = " + roundFloat(numberLPK, 2));
-
     }
 }

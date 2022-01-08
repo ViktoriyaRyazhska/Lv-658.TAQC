@@ -45,33 +45,33 @@ public class SquareRoot {
     public static boolean getIsPerfectSquare(int n) {
         return isPerfectSquare(n);
     }
+
     public static int[] getArrayOutput(int sizeOfArray, int[] array, int[] newArray) {
-        return arrayOutput(sizeOfArray,array,newArray);
+        return arrayOutput(sizeOfArray, array, newArray);
     }
 
-        public static void task(BufferedReader br) throws IOException {
+    public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter size of an array:");
+        int sizeOfArray = Integer.parseInt(br.readLine());
+        if (sizeOfArray <= 0) {
+            throw new IllegalArgumentException("Only Positive Numbers!");
+        }
 
-            int sizeOfArray = Integer.parseInt(br.readLine());
-            if (sizeOfArray <= 0) {
-               throw new IllegalArgumentException("Only Positive Numbers!");
+        System.out.print("Please, enter array: ");
+        int array[] = new int[sizeOfArray];
+        arrayInput(br, sizeOfArray, array);
+        for (int i = 0; i < sizeOfArray; i++) {
+            if (array[i] < 0) {
+                throw new IllegalArgumentException("Only Positive Numbers!");
             }
-                System.out.print("Please, enter array: ");
-                int array[] = new int[sizeOfArray];
-                arrayInput(br, sizeOfArray, array);
-            for (int i = 0; i < sizeOfArray; i++) {
-                if (array[i] < 0) {
-                    throw new IllegalArgumentException("Only Positive Numbers!");
-                }
-            }
+        }
 
-                    int[] newArray = new int[sizeOfArray];
-                    arrayOutput(sizeOfArray, array, newArray);
-                    System.out.print("New array is: ");
-                    for (int i = 0; i < sizeOfArray; i++) {
-                        System.out.print(newArray[i] + "  ");
-                    }
-                    System.out.println();
-
+        int[] newArray = new int[sizeOfArray];
+        arrayOutput(sizeOfArray, array, newArray);
+        System.out.print("New array is: ");
+        for (int i = 0; i < sizeOfArray; i++) {
+            System.out.print(newArray[i] + "  ");
+        }
+        System.out.println();
     }
 }

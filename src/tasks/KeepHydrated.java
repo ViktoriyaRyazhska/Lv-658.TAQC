@@ -17,13 +17,11 @@ public class KeepHydrated {
 
     public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter the time:");
-
         double time = Float.parseFloat(br.readLine());
         if (time < 0) {
             throw new IllegalArgumentException("Only Positive Numbers!");
         }
         int litres = numberOfLitres(time);
         System.out.printf("time = %.2f ----> litres = %d \n", time, litres);
-
     }
 }
