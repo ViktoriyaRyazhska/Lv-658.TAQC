@@ -13,6 +13,9 @@ public class IsDivisible {
     public static int[] getDivisibleBy(int[] numbers, int div) {
         return divisibleBy(numbers, div);
     }
+    public static boolean getValidate(int[] numbers, int div) {
+        return validate(numbers, div);
+    }
 
     private static boolean validate(int[] numbers, int div) {
         boolean flag = true;
