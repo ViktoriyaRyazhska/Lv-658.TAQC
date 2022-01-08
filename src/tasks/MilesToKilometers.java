@@ -14,7 +14,6 @@ public class MilesToKilometers {
         kpl = mpg * (kmPerMile / literToGallon);
         return kpl;
     }
-
     private static float roundFloat(float f, int places) {
         BigDecimal bigDecimal = new BigDecimal(Float.toString(f));
         bigDecimal = bigDecimal.setScale(places, RoundingMode.HALF_UP);

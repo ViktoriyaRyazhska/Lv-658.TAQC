@@ -35,6 +35,4 @@ public class MilesToKilometersTest {
         Mockito.when(reader.readLine()).thenReturn("-1.7", null);
         MilesToKilometers.task(reader);
     }
-
-
 }
