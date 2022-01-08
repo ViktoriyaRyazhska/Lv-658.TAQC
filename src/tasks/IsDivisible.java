@@ -13,51 +13,29 @@ public class IsDivisible {
     public static int[] getDivisibleBy(int[] numbers, int div) {
         return divisibleBy(numbers, div);
     }
-    public static boolean getValidate(int[] numbers, int div) {
-        return validate(numbers, div);
-    }
 
-    private static boolean validate(int[] numbers, int div) {
-        boolean flag = true;
-        if (div == 0) {
-            flag = false;
-            System.out.println("Error.. divisor can not be 0");
-        }
-        if(numbers.length == 0)
-        {
-            flag = false;
-            System.out.println("Error.. array with numbers is empty");
-        }
-        return flag;
-    }
-
-    public static void task(BufferedReader br)  {
+    public static void task(BufferedReader br) throws IOException, IllegalArgumentException {
         System.out.println("Please, enter number`s quantity:");
         int size = 0;
-        try {
-            size = Integer.parseInt(br.readLine());
-            System.out.println("Please, enter numbers:");
-            int[] array = new int[size];
-            for (int i = 0; i < size; i++) {
-                array[i] = Integer.parseInt(br.readLine());
-            }
-            System.out.println("Please, enter divisor:");
-            int divisor = Integer.parseInt(br.readLine());
+        size = Integer.parseInt(br.readLine());
 
-            if(validate(array,divisor)) {
-                int[] arrayRes = divisibleBy(array, divisor);
-                System.out.println("Result is:");
-                System.out.println(Arrays.toString(arrayRes));
-            }
-            else {
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error.. not a number");
-            task(br);
+        if (size <= 0) {
+            throw new IllegalArgumentException("Error.. array with numbers is empty");
         }
+        System.out.println("Please, enter numbers:");
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = Integer.parseInt(br.readLine());
+        }
+        System.out.println("Please, enter divisor:");
+        int divisor = Integer.parseInt(br.readLine());
+        if (divisor == 0) {
+            throw new IllegalArgumentException("Error.. divisor can not be 0");
+        }
+
+        int[] arrayRes = divisibleBy(array, divisor);
+        System.out.println("Result is:");
+        System.out.println(Arrays.toString(arrayRes));
+
     }
 }
