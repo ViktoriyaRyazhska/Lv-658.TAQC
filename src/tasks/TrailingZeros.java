@@ -20,39 +20,19 @@ public class TrailingZeros {
         return result;
     }
 
-    private static boolean validate(int number) {
-        boolean flag = true;
-        if (number <= 0) {
-            flag = false;
-            System.out.println("Error.. number must be positive");
-        }
-
-        return flag;
-    }
-
     public static int getFindZeros(int number) {
         return findZeros(number);
     }
-    public static boolean getValidate(int number){
-        return validate(number);
-    }
 
-    public static void task(BufferedReader reader) {
+
+    public static void task(BufferedReader reader) throws IOException, IllegalArgumentException {
         System.out.print("Enter a positive number:\n> ");
-        try {
-            int number = Integer.parseInt(reader.readLine());
 
-            if (validate(number)) {
-                System.out.println(output(number));
-            } else {
-                task(reader);
-            }
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(reader);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error.. not a number");
-            task(reader);
+        int number = Integer.parseInt(reader.readLine());
+        if (number <= 0) {
+            throw new IllegalArgumentException("Error.. number must be positive");
         }
+
+        System.out.println(output(number));
     }
 }
