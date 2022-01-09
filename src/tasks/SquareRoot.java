@@ -41,49 +41,30 @@ public class SquareRoot {
         return newArray;
     }
 
-    private static boolean validateSize(int size) {
-        boolean flag = true;
-        if (size <= 0) {
-            flag = false;
-            System.out.println("Only Positive Numbers!");
-        }
-        return flag;
-    }
 
-    private static boolean validateArrayInput(int size, int[] array) {
-        boolean flag = true;
-        for (int i = 0; i < size; i++) {
-            if (array[i] < 0) {
-                System.out.println("Only Positive Numbers!");
-                flag = false;
-            }
-        }
-        return flag;
-    }
     public static boolean getIsPerfectSquare(int n) {
         return isPerfectSquare(n);
     }
     public static int[] getArrayOutput(int sizeOfArray, int[] array, int[] newArray) {
         return arrayOutput(sizeOfArray,array,newArray);
     }
-    public static boolean getValidateSize(int size) {
-        return validateSize(size);
-    }
-    public static boolean getValidateArrayInput(int size, int[] array) {
-        return validateArrayInput(size,array);
-    }
 
-
-
-        public static void task(BufferedReader br) {
+        public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter size of an array:");
-        try {
+
             int sizeOfArray = Integer.parseInt(br.readLine());
-            if (validateSize(sizeOfArray)) {
+            if (sizeOfArray <= 0) {
+               throw new IllegalArgumentException("Only Positive Numbers!");
+            }
                 System.out.print("Please, enter array: ");
                 int array[] = new int[sizeOfArray];
                 arrayInput(br, sizeOfArray, array);
-                if (validateArrayInput(sizeOfArray, array)) {
+            for (int i = 0; i < sizeOfArray; i++) {
+                if (array[i] < 0) {
+                    throw new IllegalArgumentException("Only Positive Numbers!");
+                }
+            }
+
                     int[] newArray = new int[sizeOfArray];
                     arrayOutput(sizeOfArray, array, newArray);
                     System.out.print("New array is: ");
@@ -91,18 +72,6 @@ public class SquareRoot {
                         System.out.print(newArray[i] + "  ");
                     }
                     System.out.println();
-                } else {
-                    task(br);
-                }
-            } else {
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error. Try again.");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("No Letters Please!");
-            task(br);
-        }
+
     }
 }
