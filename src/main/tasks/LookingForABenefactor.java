@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class LookingForABenefactor {
     public static void runTask10(BufferedReader reader) throws IOException {
-        conditionOfTask();
+
         Test4 test4 = new Test4();
 
         List <Integer> first = new ArrayList();

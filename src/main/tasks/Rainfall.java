@@ -8,7 +8,7 @@ import java.util.List;
 public class Rainfall {
 
     public static double mean(String town, String strng) {
-        String[] lines = strng.split("\\r?\\n");
+        String[] lines = strng.split("\\n");
         String[] separated, separated_two;
         double total = 0.0;
         for (String line : lines) {
@@ -29,7 +29,7 @@ public class Rainfall {
     }
 
     public static double variance(String town, String strng) {
-        String[] lines = strng.split("\\r?\\n");
+        String[] lines = strng.split("\\n");
         String[] separated, separated_two;
         List<Double> totals = new ArrayList<Double>();
         double total = 0.0;
@@ -37,7 +37,7 @@ public class Rainfall {
         for (String line : lines) {
             separated = line.split(":");
             if (separated[0].equals(town)) {
-                separated_two = separated[1].split("[ ,]");
+                separated_two = separated[1].split("[ ,]"); //
                 for (int j = 1; j <= separated_two.length; j += 2) {
                     totals.add(Double.parseDouble(separated_two[j]) - avg);
                 }
@@ -69,7 +69,8 @@ public class Rainfall {
 
     public static void runTask15(BufferedReader reader) throws IOException {
         try {
-            System.out.println("Set City: ");
+            System.out.println("Set City from CityList:" +
+                    "Rome, London, Paris, NY, Vancouver, Sydney, Bangkok, Tokyo, Beijing, Lima");
             final String city = reader.readLine();
             if (mean(city,data)== -1 || variance(city,data) == -1){
                 System.out.println("Ops...You entered an incorrect city");
