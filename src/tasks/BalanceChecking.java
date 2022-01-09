@@ -54,9 +54,8 @@ public class BalanceChecking {
     public static void task(BufferedReader br) throws IOException, IllegalArgumentException, StringIndexOutOfBoundsException, ArrayIndexOutOfBoundsException {
         System.out.println("How much purchases are in check book?");
             int count = Integer.parseInt(br.readLine());
-            if (count < 0) {
-                System.out.println("Count can't be <= 0");
-                count = Integer.parseInt(br.readLine());
+            if (count <= 0) {
+                throw new IllegalArgumentException("Count can't be <= 0");
             }
             System.out.println("Please, enter the check book:");
             StringBuilder check = new StringBuilder();
