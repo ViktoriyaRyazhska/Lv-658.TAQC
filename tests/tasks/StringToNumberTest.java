@@ -1,9 +1,13 @@
 package tasks;
 
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class StringToNumberTest {
@@ -19,11 +23,15 @@ public class StringToNumberTest {
                 return new Object[][] {{"15",15}, {"0",0},{"12",12}};
             case "convertIntNegativeTest":
                 return new Object[][] {{"-29",-29}, {"-1",-1},{"-1234",-1234}};
-
+            case "taskIllegalArgumentExceptionTest":
+                return new Object[][] {{"-29.9"}, {"-1a"},{"-1234/"}};
+            case "taskOutputTest":
+                return new Object[][] {{"11"}, {"-2"},{"093"}};
         }
         return null;
-
     }
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
 
     @Test(dataProvider = "dataProvider")
     public void isNumericTrueTest(String val) {
@@ -33,24 +41,22 @@ public class StringToNumberTest {
     public void isNumericFalseTest(String val) {
         Assert.assertFalse(StringToNumber.getIsNumeric(val));
     }
-
     @Test(dataProvider = "dataProvider")
     void convertIntPositiveTest(String val, int res) {
         Assert.assertEquals(StringToNumber.getConvert(val), res);
     }
-
     @Test(dataProvider = "dataProvider")
     void convertIntNegativeTest(String val, int res) {
         Assert.assertEquals(StringToNumber.getConvert(val), res);
     }
-
-    @Test(dataProvider = "dataProvider")
-    void validateFalseTest(String val) {
-        Assert.assertFalse(StringToNumber.getValidate(val));
+    @Test(expectedExceptions = IllegalArgumentException.class,dataProvider = "dataProvider")
+    void taskIllegalArgumentExceptionTest(String val) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(val,null);
+        StringToNumber.task(reader);
     }
-
     @Test(dataProvider = "dataProvider")
-    void validateTrueTest(String val) {
-        Assert.assertTrue(StringToNumber.getValidate(val));
+    void taskOutputTest(String val) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(val,null);
+        StringToNumber.task(reader);
     }
 }

@@ -11,42 +11,23 @@ public class VolumeCuboid {
         return volume;
     }
 
-    private static boolean validate(double length, double width, double height) {
-        boolean flag = true;
-        if (length <= 0 || width <= 0 || height <= 0) {
-            flag = false;
-            System.out.println("Only Positive Numbers!");
-        }
-        return flag;
-    }
+
     public static double getCalculateVolume(double length, double width, double height) {
         return calculateVolume(length,width,height);
     }
-    public static boolean getValidate(double length, double width, double height) {
-        return validate(length,width,height);
-    }
 
-
-
-        public static void task(BufferedReader br) {
+        public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter length, width, height one by one:");
-        try {
-            double length = Double.parseDouble(br.readLine());
-            double width = Double.parseDouble(br.readLine());
-            double height = Double.parseDouble(br.readLine());
-            if (validate(length, width,height)) {
-                double volume = calculateVolume(length, width, height);
-                System.out.printf("length = %.2f; width = %.2f; height = %.2f ----> volume = %.2f \n", length, width, height, volume);
-            }
-            else {
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error. Try again.");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Just integers & No Letters Please!");
-            task(br);
+
+        double length = Double.parseDouble(br.readLine());
+        double width = Double.parseDouble(br.readLine());
+        double height = Double.parseDouble(br.readLine());
+        if (length <= 0 || width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Only Positive Numbers!");
         }
+        double volume = calculateVolume(length, width, height);
+        System.out.printf("length = %.2f; width = %.2f; height = %.2f ----> volume = %.2f \n", length, width, height, volume);
+
+
     }
 }

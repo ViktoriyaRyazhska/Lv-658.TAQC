@@ -11,41 +11,19 @@ public class KeepHydrated {
         return litres;
     }
 
-    private static boolean validate(double time) {
-        boolean flag = true;
-        if (time < 0) {
-            flag = false;
-            System.out.println("Only Positive Numbers!");
-        }
-        return flag;
-    }
-
     public static int getNumberOfLitres(double time) {
         return numberOfLitres(time);
     }
 
-    public static boolean getValidate(double time) {
-        return validate(time);
-    }
-
-
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter the time:");
-        try {
-            double time = Float.parseFloat(br.readLine());
-            if(validate(time)){
-                int litres = numberOfLitres(time);
-                System.out.printf("time = %.2f ----> litres = %d \n", time, litres);
-            }
-            else {
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error. Try again.");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("No letters! You should enter number.");
-            task(br);
+
+        double time = Float.parseFloat(br.readLine());
+        if (time < 0) {
+            throw new IllegalArgumentException("Only Positive Numbers!");
         }
+        int litres = numberOfLitres(time);
+        System.out.printf("time = %.2f ----> litres = %d \n", time, litres);
+
     }
 }

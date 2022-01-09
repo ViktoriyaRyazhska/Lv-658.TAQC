@@ -38,7 +38,6 @@ public class MilesToKilometers {
             throw new IllegalArgumentException("Only Positive Numbers!");
         }
 
-
         float numberLPK = mpgToKPL(numberMPG);
         System.out.println("Miles per Gallon = " + roundFloat(numberMPG, 2));
         System.out.println("Kilometers per Liter = " + roundFloat(numberLPK, 2));

@@ -31,10 +31,15 @@ public class SquareRootTest {
             case "taskSizeArrayArgumentExceptionTest":
                 return new Object[][]{{"-2"}, {"-5"}, {"-3"}, {"-10"}};
             case "taskArrayInputArgumentExceptionTest":
-                int[] input4 = new int[] { 4, 3, -9, 7, -2, 1 };
-                int[]  input5 = new int[] { 100, -101, 5, 5, -1, 1 };
-                int[]  input6 = new int[] { 1, -2, 3, 4, 5, 6 };
-                return new Object[][]{{"6",input4},{"6",input5},{"6",input6}};
+                String line = "4\n3\n-9\n7\n-2\n1";
+                String line2 = "2\n3\n1\n1\n2\n-4";
+                String line3 = "-2\n-11\n-13\n3\n9\n5";
+                return new Object[][]{{6,line},{6,line2},{6,line3}};
+            case "taskArrayOutputTest":
+                String line4 = "4\n3\n9\n7\n2\n1";
+                String line5 = "2\n3\n1\n1\n2\n4";
+                String line6 = "2\n11\n13\n3\n9\n5";
+                return new Object[][]{{6,line4},{6,line5},{6,line6}};
             default:
                 return null;
         }
@@ -43,19 +48,15 @@ public class SquareRootTest {
     @Mock
     BufferedReader reader = Mockito.mock(BufferedReader.class);
     @Test(dataProvider = "dataProvider")
-    public static void isPerfectSquareNegativeTest(int value)
-    {
+    public static void isPerfectSquareNegativeTest(int value) {
         Assert.assertFalse(SquareRoot.getIsPerfectSquare(value));
     }
     @Test(dataProvider = "dataProvider")
-    public static void isPerfectSquareTrueTest(int value)
-    {
+    public static void isPerfectSquareTrueTest(int value) {
         Assert.assertTrue(SquareRoot.getIsPerfectSquare(value));
     }
-
     @Test(dataProvider = "dataProvider")
-    public static void arrayOutputTest(int[]value, int[] expectRes)
-    {
+    public static void arrayOutputTest(int[]value, int[] expectRes) {
         int[] output = new int[value.length];
         SquareRoot.getArrayOutput(value.length,value,output);
         Assert.assertEquals(output,expectRes);
@@ -66,9 +67,13 @@ public class SquareRootTest {
         SquareRoot.task(reader);
     }
     @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "dataProvider")
-    public void taskArrayInputArgumentExceptionTest(String size,int [] data) throws IOException {
-        Mockito.when(reader.readLine()).thenReturn(size, null);
-        Mockito.when(reader.readLine()).thenReturn(Arrays.toString(data), null);
+    public void taskArrayInputArgumentExceptionTest(int size,String data) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(String.valueOf(size),data,null);
+        SquareRoot.task(reader);
+    }
+    @Test(dataProvider = "dataProvider")
+    public void taskArrayOutputTest(int size,String data) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(String.valueOf(size),data,null);
         SquareRoot.task(reader);
     }
 
