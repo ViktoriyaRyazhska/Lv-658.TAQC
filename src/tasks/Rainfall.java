@@ -22,19 +22,6 @@ public class Rainfall {
                 .flatMapToDouble(s -> of(s.replaceAll("[^\\d.]", " ").trim().split("\\s+")).mapToDouble(Double::parseDouble));
     }
 
-    private static boolean validate(String town) {
-        town = town.toLowerCase(Locale.ROOT);
-        boolean flag;
-        String string = "rome, london, paris, ny, vancouver, sydney, bangkok, tokyo, beijing, Lima";
-        if (!string.contains(town)) {
-            System.err.println("Error! Your input doesn't belong to the list of specified cities!");
-            flag = false;
-        } else {
-            flag = true;
-        }
-        return flag;
-    }
-
     public static double getMean(String town, String strng) {
         return mean(town, strng);
     }
@@ -43,13 +30,8 @@ public class Rainfall {
         return variance(town, strng);
     }
 
-    public static boolean getValidate(String town) {
-        return validate(town);
-    }
-
-    public static void task(BufferedReader br) {
-        try {
-            String data =
+    public static void task(BufferedReader br) throws IOException, IllegalArgumentException{
+        String data =
                     "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" +
                             "\n" +
                             "London:Jan 48.0,Feb 38.9,Mar 39.9,Apr 42.2,May 47.3,Jun 52.1,Jul 59.5,Aug 57.2,Sep 55.4,Oct 62.0,Nov 59.0,Dec 52.9" +
@@ -69,17 +51,12 @@ public class Rainfall {
                             "Beijing:Jan 3.9,Feb 4.7,Mar 8.2,Apr 18.4,May 33.0,Jun 78.1,Jul 224.3,Aug 170.0,Sep 58.4,Oct 18.0,Nov 9.3,Dec 2.7" +
                             "\n" +
                             "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
-            System.out.println("Choose the name of town [Rome / London / Paris / NY / Vancouver / Sydney / Bangkok / Tokyo / Beijing / Lima] :");
-            String town = br.readLine();
-            if (validate(town)) {
-                System.out.println(mean(town, data));
-                System.out.println(variance(town, data));
-            } else {
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
+        System.out.println("Choose the name of town [Rome / London / Paris / NY / Vancouver / Sydney / Bangkok / Tokyo / Beijing / Lima] :");String town = br.readLine();
+        String string = "Rome, London, Paris, NY, Vancouver, Sydney, Bangkok, Tokyo, Beijing, Lima";
+        if (!string.contains(town)) {
+            throw new IllegalArgumentException("Error! Your input doesn't belong to the list of specified cities!");
         }
+        System.out.println(mean(town, data));
+        System.out.println(variance(town, data));
     }
 }

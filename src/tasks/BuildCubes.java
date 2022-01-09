@@ -24,17 +24,9 @@ public class BuildCubes {
         return findNb(m);
     }
 
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException, IllegalArgumentException{
         System.out.println("Please, enter number m:");
-        try {
-            long m = Long.parseLong(br.readLine());
-            System.out.println("The result n = " + findNb(m));
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error.. Input should be only numbers, not letters, symbols or fractional values!");
-            task(br);
-        }
+        long m = Long.parseLong(br.readLine());
+        System.out.println("The result n = " + findNb(m));
     }
 }

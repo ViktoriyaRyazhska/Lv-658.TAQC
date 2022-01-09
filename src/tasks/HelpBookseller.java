@@ -25,8 +25,7 @@ public class HelpBookseller {
         return stockSummary(lstOfArt, lstOf1stLetter);
     }
 
-    public static void task(BufferedReader br) {
-        try {
+    public static void task(BufferedReader br) throws IOException, StringIndexOutOfBoundsException, IllegalArgumentException {
             System.out.println("Enter stocklist: ");
             List<String> lstOfArt = new ArrayList<String>();
             String response = new String();
@@ -46,13 +45,6 @@ public class HelpBookseller {
             String[] simplelstOf1stLetter = new String[lstOf1stLetter.size()];
             lstOf1stLetter.toArray(simplelstOf1stLetter);
             System.out.println(stockSummary(simplelstOfArt, simplelstOf1stLetter));
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println("Error.. Input isn't in good format!");
-            task(br);
-        }
     }
 }
 // "ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"

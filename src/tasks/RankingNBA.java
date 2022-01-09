@@ -49,20 +49,12 @@ public class RankingNBA {
         return nbaCup(resultSheet, toFind);
     }
 
-    public static void task(BufferedReader br) {
-        try {
+    public static void task(BufferedReader br) throws IOException, StringIndexOutOfBoundsException, IllegalArgumentException{
         System.out.println("Enter result sheet: ");
         String sheet = br.readLine();
         System.out.println("Enter the name of team and country to find: ");
         String toFind = br.readLine();
         System.out.println(nbaCup(sheet, toFind));
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println("Error.. Input isn't in good format. It can't be numbers!");
-            task(br);
-        }
     }
 }
 // Los Angeles Clippers 104 Dallas Mavericks 88,New York Knicks 101 Atlanta Hawks 112,Indiana Pacers 103 Memphis Grizzlies 112,Los Angeles Clippers 100 Boston Celtics 120,
