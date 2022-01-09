@@ -16,14 +16,6 @@ public class StringToNumber {
         return str != null && str.matches("^(\\+|-)?\\d+$");
     }
 
-    private static boolean validate(String str) {
-        boolean flag = true;
-        if (!isNumeric(str)) {
-            flag = false;
-            System.out.println("Just integers & No Letters Please!");
-        }
-        return flag;
-    }
     public static boolean getIsNumeric(String str){
         return isNumeric(str);
     }
@@ -32,27 +24,14 @@ public class StringToNumber {
         return convert(str);
     }
 
-    public static boolean getValidate(String str){
-        return validate(str);
-    }
-
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter the number:");
-        try {
-            String numberStr = br.readLine();
-            if (validate(numberStr)) {
-                int number = convert(numberStr);
-                System.out.printf(" '%s' ----> %d \n", numberStr, number);
-            }
-            else{
-                task(br);
-            }
-        } catch (IOException e) {
-            System.out.println("Error. Try again.");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("No letters! You should enter number.");
-            task(br);
-        }
+        String numberStr = br.readLine();
+        if (!isNumeric(numberStr)) {
+            throw  new IllegalArgumentException("Just integers & No Letters Please!");
+         }
+        int number = convert(numberStr);
+        System.out.printf(" '%s' ----> %d \n", numberStr, number);
+
     }
 }
