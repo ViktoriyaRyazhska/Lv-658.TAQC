@@ -9,7 +9,16 @@ public class TrailingZerosInFactorial {
         int res = 0;
         for (int i = 5; i <= n; i *= 5) {
             res += n / i;
+            System.out.println(res);
         }
+//        int x=1;
+//        int i=1;
+//        while (i <=n){
+//            x= x*i;
+//            i++;
+//        }
+//        System.out.println(x);
+//        return x;
         return res;
     }
 

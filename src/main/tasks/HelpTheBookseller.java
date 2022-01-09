@@ -21,13 +21,15 @@ public class HelpTheBookseller {
 
     public static void runTask17(BufferedReader reader) throws IOException {
         try {
-            System.out.println("Set list Of Art: ");
-            final String lstOfArt = reader.readLine();
-            String[] lstOfArtArray = lstOfArt.split("");
+            String [] List = new String[]{"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"};
+//            System.out.println("Set list Of Art: ");
+//            final String lstOfArt = reader.readLine();
+//            String[] lstOfArtArray = lstOfArt.split("");
             System.out.println("Set list Of 1st letters: ");
             final String lstOf1stLetter = reader.readLine();
             final String[] lstOf1stLetterArray = lstOf1stLetter.split("");
-            System.out.println(stockSummary(lstOfArtArray,lstOf1stLetterArray));
+            System.out.println(stockSummary(List,lstOf1stLetterArray));
+//            System.out.println(stockSummary(lstOfArtArray,lstOf1stLetterArray));
         } catch (IOException e) {
             e.printStackTrace();
         }

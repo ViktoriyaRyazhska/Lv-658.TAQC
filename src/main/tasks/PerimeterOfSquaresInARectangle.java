@@ -3,6 +3,7 @@ package tasks;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.List;
 
 public class PerimeterOfSquaresInARectangle {
     public static BigInteger perimeter(BigInteger n) {
@@ -18,8 +19,28 @@ public class PerimeterOfSquaresInARectangle {
             c = a.add(b);
             sum = sum.add(a);
         }
+//        iint n0 = 1;
+//        int n1 = 1;
+//        int n2;
+//        List <Integer> n3=new ArrayList<>();
+//        n3.add(1);
+//        n3.add(1);
+////        System.out.print(n0+" "+n1+" ");
+//        for(int i = 1; i <= n-1; i++){
+//            n2=n0+n1;
+////            System.out.print(n2+" ");
+//            n3.add(n2);
+//            n0=n1;
+//            n1=n2;
+//
+//        }
+//        System.out.println(n3+"n3n3n3n3");
+//        Integer res = n3.stream()
+//                .reduce(0, (a, b) -> (a + b));
+//        return res*4;
 
         return sum.multiply(BigInteger.valueOf(4));
+
     }
 
     public static void main(String[] args) {
@@ -44,5 +65,4 @@ public class PerimeterOfSquaresInARectangle {
         }
     }
 }
-
 
