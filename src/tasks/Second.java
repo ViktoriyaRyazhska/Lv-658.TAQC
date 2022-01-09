@@ -9,9 +9,10 @@ public class Second {
 //    Height - 5
 //    Expected output is 63.0
 
-    public static double getVolume(final double length, final double width, final double height) {
-        if (length <= 0 || width <= 0 || height <= 0) return 0;
-        return length * width * height;
+    public static String getVolume(final double length, final double width, final double height) {
+        double res = length * width * height;
+        if (length <= 0 || width <= 0 || height <= 0) return "You should enter only positive values!";
+        return "Volume of a cuboid is " + Math.ceil(res);
     }
 
 }
