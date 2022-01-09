@@ -24,14 +24,4 @@ public class GapPrimesTest {
     public void outputTest(int from, int to, int gap, String res) {
         Assert.assertEquals(GapPrimes.getOutput(from, to, gap),res);
     }
-
-    @Test(dataProvider = "dataProvider")
-    public void validatePositiveTest(int from, int to, int gap) {
-        Assert.assertTrue(GapPrimes.getValidate(from, to, gap));
-    }
-
-    @Test(dataProvider = "dataProvider")
-    public void validateNegativeTest(int from, int to, int gap) {
-        Assert.assertFalse(GapPrimes.getValidate(from, to, gap));
-    }
 }
