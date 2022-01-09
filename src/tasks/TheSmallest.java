@@ -2,6 +2,7 @@ package tasks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -141,38 +142,22 @@ public class TheSmallest {
         return result;
     }
 
-    // validate input
-    private static boolean validate(int number) {
-        boolean flag = true;
-        if (number <= 0) {
-            flag = false;
-            System.out.println("Error.. number must be positive");
-        }
-
-        return flag;
-    }
-
     // output
-    private static void output(List<Integer> result) {
-        System.out.print("Result: " + result);
+    private static String output(List<Integer> result) {
+        String output = "Result: " + result;
+
+        return output;
     }
 
-    public static void task(BufferedReader reader) {
+    public static void task(BufferedReader reader) throws IOException, IllegalArgumentException {
         System.out.print("Enter a positive number:\n> ");
-        try {
-            int number = Integer.parseInt(reader.readLine());
-            if (validate(number)) {
-                output(findMin(numberToChars(number), numberToChars(number)));
-            } else {
-                task(reader);
-            }
-        } catch (IOException e) {
-            System.out.println("Error.. enter a number plz");
-            task(reader);
-        } catch (NumberFormatException e) {
-            System.out.println("Error.. not a number");
-            task(reader);
+
+        int number = Integer.parseInt(reader.readLine());
+        if (number <= 0) {
+            throw new IllegalArgumentException("Error.. number must be positive");
         }
+
+        System.out.println(findMin(numberToChars(number), numberToChars(number)));
     }
 
 }
