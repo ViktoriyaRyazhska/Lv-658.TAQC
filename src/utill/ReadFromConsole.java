@@ -2,7 +2,13 @@ package utill;
 
 import tasks.Tenth;
 
+
 import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
 
 public class ReadFromConsole {
     static BufferedReader reader = new BufferedReader(
@@ -41,6 +47,55 @@ public class ReadFromConsole {
             number = getIntNumber();
         }
         return number;
+    }
+
+    public static long getLongNumber() {
+        System.out.print("Input number : ");
+        long number;
+        try {
+            number = Long.parseLong(reader.readLine());
+        } catch (NumberFormatException | IOException e) {
+            System.out.println(e.getMessage() + "   Enter only numbers!");
+            number = getLongNumber();
+        }
+        return number;
+    }
+
+    public static byte getByteNumber() {
+        System.out.print("Enter number(bigger than -128 and less than 127): ");
+        byte number;
+        try {
+            number = Byte.parseByte(reader.readLine());
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Enter only numbers that bigger than -128 and less than 127!");
+            number = getByteNumber();
+        }
+        return number;
+    }
+
+    public static int[] getIntArray() {
+        System.out.println("Enter array size: ");
+        int arraySize = getIntNumber();
+
+        int[] array = new int[arraySize];
+
+        array = Arrays.stream(array)
+                .map(e -> e = getIntNumber())
+                .toArray();
+
+        return array;
+    }
+
+    public static String getString() {
+        String str = "";
+
+        try {
+            str = reader.readLine();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            str = getString();
+        }
+        return str;
     }
 
     public static String[] getArrayOfWeather() {

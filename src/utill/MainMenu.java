@@ -1,4 +1,5 @@
 package utill;
+
 import tasks.*;
 
 import java.util.Arrays;
@@ -32,7 +33,11 @@ public class MainMenu {
                     TasksDescriptions.THIRD.getDescription();
                     System.out.println(Third.mpgToKPM(ReadFromConsole.getFloatNumber()));
                 }
-                case (4) -> TasksDescriptions.FOURTH.getDescription();
+                case (4) -> {
+                    TasksDescriptions.FOURTH.getDescription();
+                    int[] array = ReadFromConsole.getIntArray();
+                    System.out.println(Arrays.toString(array) + " -> " +Arrays.toString(Fourth.squareOrSquareRoot(array)));
+                }
                 case (5) -> {
                     TasksDescriptions.FIFTH.getDescription();
                     System.out.println("Input array length");
@@ -54,6 +59,12 @@ public class MainMenu {
                     TasksDescriptions.SEVENTH.getDescription();
                     System.out.println(Seventh.am_i_wilson(ReadFromConsole.getFloatNumber()) ? "Yes" : "No");
                 }
+                case (8) -> {
+                    TasksDescriptions.EIGHTH.getDescription();
+                    System.out.print("Enter double number: ");
+                    double number = ReadFromConsole.getDoubleNumber();
+                    System.out.println(number + " -> " + Eighth.TwoDecimalPlaces(number));
+                }
                 case (10) -> {
                     TasksDescriptions.TENTH.getDescription();
                     ReadFromConsole.getNextDonation();
@@ -61,6 +72,12 @@ public class MainMenu {
                 case (11) -> {
                     TasksDescriptions.ELEVENTH.getDescription();
                     System.out.println(Eleventh.seriesSum(ReadFromConsole.getIntNumber()));
+                }
+                case (12) -> {
+                    TasksDescriptions.TWELVETH.getDescription();
+                    byte number1 = ReadFromConsole.getByteNumber();
+                    byte number2 = ReadFromConsole.getByteNumber();
+                    System.out.println("Sum of " + number1 + " and " + number2 +" = " + Twelve.sum(number1, number2));
                 }
                 case (14) -> {
                     TasksDescriptions.FOURTEENTH.getDescription();
@@ -90,6 +107,25 @@ public class MainMenu {
                     double number = ReadFromConsole.getDoubleNumber();
                     Fifteenth.f(number);
                 }
+                case (16) -> {
+                    TasksDescriptions.SIXTEENTH.getDescription();
+
+                    String town;
+
+                    do {
+                        System.out.print("Input town (to get list of towns enter '/listOfTowns'): ");
+                        town = ReadFromConsole.getString();
+
+                        switch (town) {
+                            case ("/listOfTowns") -> System.out.println(TasksDescriptions.RAINFALL_DATA.takeDescription() + "\n");
+                            default -> {
+                                System.out.println("Mean: " + Sixteenth.mean(town, TasksDescriptions.RAINFALL_DATA.takeDescription()));
+                                System.out.println("Variance: " + Sixteenth.variance(town, TasksDescriptions.RAINFALL_DATA.takeDescription()));
+                            }
+                        }
+
+                    }while (town.equals("/listOfTowns"));
+                }
                 case (18) -> {
                     TasksDescriptions.EIGHTEENTH.getDescription();
                     String[] stockListValues = Eighteenth.getElementsOfStockListFromUserInput(ReadFromConsole.getStockList());
@@ -106,6 +142,13 @@ public class MainMenu {
                     System.out.println("Count of needed umbrellas is "
                             + Nineteenth.minUmbrellas(ReadFromConsole.getArrayOfWeather()));
                 }
+                case (20) -> {
+                    TasksDescriptions.TWENTIETH.getDescription();
+                    int g = ReadFromConsole.getIntNumber();
+                    long m = ReadFromConsole.getLongNumber();
+                    long n = ReadFromConsole.getLongNumber();
+                    System.out.println("gap (" + g + ", " + m + ", " + n + ") -> " + Arrays.toString(Twentieth.gap(g, m, n)));
+                }
                 case (22) -> {
                     TasksDescriptions.TWENTYSECOND.getDescription();
                     System.out.println(TwentySecond.perimeter(ReadFromConsole.getNumberOfSquares()));
@@ -114,6 +157,11 @@ public class MainMenu {
                     TasksDescriptions.TWENTYTHIRD.getDescription();
                     System.out.println("Enter double m: ");
                     System.out.println(Twentythird.solve(ReadFromConsole.getDoubleNumber()));
+                }
+                case (24) -> {
+                    TasksDescriptions.TWENTYFOURTH.getDescription();
+                    long number = ReadFromConsole.getLongNumber();
+                    System.out.println("smallest(" + number + ") -> " + Arrays.toString(TwentyFourth.smallest(number)));
                 }
                 case (9) -> {
                     TasksDescriptions.NINTH.getDescription();
