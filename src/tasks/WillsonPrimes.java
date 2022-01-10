@@ -41,39 +41,21 @@ public class WillsonPrimes {
         return isPrime(n);
     }
 
-    private static boolean validate(int n) {
-        boolean flag = true;
-        if (n < 0) {
-            flag = false;
-            System.out.println("Error.. number must be positive, you inputed negative");
-        }
-       return flag;
-    }
-
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter the number:");
-        int number = 0;
-        try {
-            number = Integer.parseInt(br.readLine());
-            if(validate(number))
-            {
-                boolean resIsWilson = isWilson(number);
-                if(resIsWilson) {
-                    System.out.println("This number is Wilson prime!");
-                }
-                else
-                {
-                    System.out.println("This number is not Wilson prime!");
-                    task(br);
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error.. not a number");
-            task(br);
+
+        int number = Integer.parseInt(br.readLine());
+        if (number < 0) {
+            throw new IllegalArgumentException("Error.. number must be positive, you entered negative");
         }
+        boolean resIsWilson = isWilson(number);
+        if(resIsWilson) {
+            System.out.println("This number is Wilson prime!");
+        }
+        else {
+            System.out.println("This number is not Wilson prime!");
+        }
+
     }
 }
 
