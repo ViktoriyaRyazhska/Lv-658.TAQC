@@ -14,18 +14,10 @@ import static org.testng.Assert.*;
 
 public class LookingBenefactorTest {
     @DataProvider
-    private Object[][] dataProvider(Method method){
-        return switch(method.getName()) {
-            default -> null;
-            case "expectedAmountOfMoneyTest" -> new Object[][]{
+    private Object[][] dataProvider(){
+        return new Object[][]{
                     {new double[]{14, 30, 5, 7, 9, 11, 15}, 30, 149},
                     {new double[]{1, 1, 1, 1}, 5, 21}
-            };
-
-            case "expectedAmountOfMoneyTestInvalid" -> new Object[][]{
-                    {new double[]{2, 2, 2, 2}, 1},
-                    {new double[]{1, 1, 1, 1}, 1}
-            };
         };
     }
 
@@ -39,9 +31,11 @@ public class LookingBenefactorTest {
         Assert.assertEquals(actual, expected);
     }
 
-    @Test(dataProvider = "dataProvider", expectedExceptions = IllegalArgumentException.class)
-    public void expectedAmountOfMoneyTestInvalid(double[] arr, double averageAmountDonations) {
-        double actual = LookingBenefactor.getExpectedAmountOfMoney(arr, averageAmountDonations);
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void expectedAmountOfMoneyTestInvalid() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("3", "2", "2", "2", "1", null);
+
+        LookingBenefactor.task(reader);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
