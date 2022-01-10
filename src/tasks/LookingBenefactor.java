@@ -28,8 +28,12 @@ public class LookingBenefactor {
 
         System.out.println("Enter the suggested average amount of donations: ");
         int averageAmountDonations = Integer.parseInt(br.readLine());
+        double lastDonat = Math.ceil(expectedAmountOfMoney(array, averageAmountDonations));
+        if(lastDonat<0) {
+            throw new IllegalArgumentException("Your expectations are not great enough.");
+        }
         System.out.println("Next donation must be : "
-                    + Math.ceil(expectedAmountOfMoney(array, averageAmountDonations)));
+                    + lastDonat);
 
     }
 }
