@@ -5,12 +5,12 @@ import java.util.List;
 import static java.util.stream.Stream.of;
 
 public class Seventeen {
-        static String nbaCup(String resultSheet, String toFind) {
+        public static String nbaCup(String resultSheet, String toFind) {
             if (toFind.isEmpty()) {
                 return "";
             }
 
-            var stats = new int[5];
+            var stat = new int[5];
             for (var match : of(resultSheet.split(",")).filter(s -> s.contains(toFind)).toArray(String[]::new)) {
                 if (match.contains(".")) {
                     return "Error(float number):" + match;
@@ -19,13 +19,13 @@ public class Seventeen {
                 if (teams[0].equals(toFind) || teams[1].equals(toFind)) {
                     var pointsA = Integer.parseInt(match.substring(match.lastIndexOf(' ') + 1));
                     var pointsB = Integer.parseInt(match.substring(teams[0].length() + 1, match.indexOf(teams[1]) - 1));
-                    updateMatchStatistics(pointsA, pointsB, match.startsWith(toFind), stats);
+                    MatchStatistics(pointsA, pointsB, match.startsWith(toFind), stat);
                 }
             }
-            return toFind + (stats[3] + stats[4] > 0 ? ":W=" + stats[0] + ";D=" + stats[2] + ";L=" + stats[1] + ";Scored=" + stats[3] + ";Conceded=" + stats[4] + ";Points=" + (3 * stats[0] + stats[2]) : ":This team didn't play!");
+            return toFind + (stat[3] + stat[4] > 0 ? ":W=" + stat[0] + ";D=" + stat[2] + ";L=" + stat[1] + ";Scored=" + stat[3] + ";Conceded=" + stat[4] + ";Points=" + (3 * stat[0] + stat[2]) : ":This team didn't play!");
         }
 
-        private static void updateMatchStatistics(int pointsA, int pointsB, boolean home, int[] stats) {
+        private static void MatchStatistics(int pointsA, int pointsB, boolean home, int[] stats) {
             if (home) {
                 var temp = pointsA;
                 pointsA = pointsB;

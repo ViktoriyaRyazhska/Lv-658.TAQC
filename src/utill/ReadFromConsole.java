@@ -49,6 +49,22 @@ public class ReadFromConsole {
         return number;
     }
 
+    public static int getPositiveIntNumber() {
+        System.out.print("Input number : ");
+        int number;
+        try {
+            number = Integer.parseInt(reader.readLine());
+        } catch (NumberFormatException | IOException e) {
+            System.out.println(e.getMessage() + "   Enter only numbers!");
+            number = getPositiveIntNumber();
+        }
+        if(number<0){
+            System.out.println("You can enter only positive numbers");
+            return number = getPositiveIntNumber();
+        }
+        else return number;
+    }
+
     public static long getLongNumber() {
         System.out.print("Input number : ");
         long number;
@@ -60,6 +76,7 @@ public class ReadFromConsole {
         }
         return number;
     }
+
 
     public static byte getByteNumber() {
         System.out.print("Enter number(bigger than -128 and less than 127): ");

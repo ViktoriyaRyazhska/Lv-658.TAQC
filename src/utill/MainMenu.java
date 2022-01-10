@@ -156,7 +156,7 @@ public class MainMenu {
                 case (23) -> {
                     TasksDescriptions.TWENTYTHIRD.getDescription();
                     System.out.println("Enter double m: ");
-                    System.out.println(Twentythird.solve(ReadFromConsole.getDoubleNumber()));
+                    System.out.println(TwentyThird.solve(ReadFromConsole.getDoubleNumber()));
                 }
                 case (24) -> {
                     TasksDescriptions.TWENTYFOURTH.getDescription();
@@ -166,7 +166,7 @@ public class MainMenu {
                 case (9) -> {
                     TasksDescriptions.NINTH.getDescription();
                     System.out.println("Input array length");
-                    int arrayLength = ReadFromConsole.getIntNumber();
+                    int arrayLength = ReadFromConsole.getPositiveIntNumber();
                     int[] array = new int[arrayLength];
                     for (int i = 0; i < arrayLength; i++) {
                         System.out.println("Input value "+ i);
@@ -179,8 +179,8 @@ public class MainMenu {
                 case(13)->{
                     TasksDescriptions.THIRTEEN.getDescription();
                     System.out.println("Enter the total volume of building: ");
-                    long totalVolume = ReadFromConsole.getIntNumber();
-                    System.out.print("Number of cubes: "+Thirteen.countAmount(totalVolume));
+                    long totalVolume = ReadFromConsole.getLongNumber();
+                    System.out.println("Number of cubes: "+Thirteen.countAmount(totalVolume));
                 }
                 case(21)->{
                     TasksDescriptions.TWENTY_FIRST.getDescription();
