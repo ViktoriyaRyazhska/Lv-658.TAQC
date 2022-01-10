@@ -2,7 +2,6 @@ package Tasks;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import tasks.Third;
 import tasks.TwentyThird;
 
 import static org.testng.Assert.assertEquals;
