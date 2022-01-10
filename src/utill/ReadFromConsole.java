@@ -2,11 +2,13 @@ package utill;
 
 import tasks.Tenth;
 
-import javax.management.InvalidAttributeValueException;
+
+import java.io.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+
 
 public class ReadFromConsole {
     static BufferedReader reader = new BufferedReader(
@@ -194,16 +196,26 @@ public class ReadFromConsole {
                 arr[i] = Double.parseDouble(reader.readLine().replace(",", "."));
             }
             double averageAmountDonations = getAverageNumber();
-            if (Math.ceil(Tenth.newAvg(arr, averageAmountDonations)) <= 0)
-                throw new InvalidAttributeValueException("VALUE ERROR! The expected donation has negative value. ");
-            else
-                System.out.println("Next donation from the benefactor to the association should be: "
-                        + Math.ceil(Tenth.newAvg(arr, averageAmountDonations)));
+            System.out.println(Tenth.newAverage(arr, averageAmountDonations));
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (InvalidAttributeValueException e) {
-            System.out.println(e.getMessage());
         }
+    }
+
+    public static double getOriginalBalance() {
+        System.out.println("Please enter your original balance: ");
+        double originalBalance;
+        try {
+            originalBalance = Double.parseDouble(reader.readLine().replace(",", "."));
+            if (originalBalance<=0) {
+                System.out.println("Please enter only positive numbers!");
+                originalBalance = getOriginalBalance();
+            }
+        } catch (NumberFormatException | IOException e) {
+            System.out.println(e.getMessage() + "   Enter only numbers!");
+            originalBalance = getOriginalBalance();
+        }
+        return originalBalance;
     }
 
     public static String getCheckBook() {
@@ -211,7 +223,7 @@ public class ReadFromConsole {
         String checkBook;
         try {
             checkBook = reader.readLine();
-        } catch (IOException e) {
+        } catch (NumberFormatException | IOException e) {
             System.out.println(e.getMessage() + "   Enter only letters!");
             checkBook = getCheckBook();
         }

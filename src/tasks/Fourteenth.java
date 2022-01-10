@@ -9,7 +9,8 @@ public class Fourteenth {
 
                                                                                         //Easy balance checking
 
-//    Input string: 125 Market !=:125.45 \n126 Hardware =34.95 \n127 Video! 7.45 \n128 Book :14.32 \n129 Gasoline ::16.10
+//    Input string: 1000.00
+//    125 Market !=:125.45 \n126 Hardware =34.95 \n127 Video! 7.45 \n128 Book :14.32 \n129 Gasoline ::16.10
 //    Expected output:
 //            "Original_Balance:_1000.00
 //            125_Market_125.45_Balance_874.55
@@ -21,7 +22,11 @@ public class Fourteenth {
 //            Average_expense__39.65"
 
     public static String[] getElementsOfCheckBookFromUserInput(String str) {
-        return str.split(Pattern.quote("\\n"));
+        String[] arr = new String[1];
+        arr[0] = " No data for making a report";
+        if (!str.equals(""))
+            return str.split(Pattern.quote("\\n"));
+        return arr;
     }
 
     public static String[] deleteRedundantSymbolsFromArr(String[] values) {
@@ -29,7 +34,6 @@ public class Fourteenth {
         cleanedValues.replaceAll(e -> e.replaceAll("[^.a-zA-Z0-9\s]", ""));
         String[] arrayOfCleanedValues = new String[cleanedValues.size()];
         cleanedValues.toArray(arrayOfCleanedValues);
-        //System.out.println(cleanedValues);
         return arrayOfCleanedValues;
     }
 
@@ -47,17 +51,16 @@ public class Fourteenth {
     }
 
 
-    public static String getOriginalBalance() {
-        double originalBalance = 1000.00;
+    public static String getOriginalBalance(double originalBalance) {
+        if (originalBalance <= 0) return ("Please enter only positive numbers!");
         final DecimalFormat df = new DecimalFormat("0.00");
         return "\"Original Balance: " + df.format(originalBalance).replace(',', '.');
     }
 
 
-    public static String[] getNewBalance(double[] checkAmount) {
+    public static String[] getNewBalance(double[] checkAmount, double originalBalance) {
         final DecimalFormat df = new DecimalFormat("0.00");
         String[] readyBalance = new String[checkAmount.length];
-        double originalBalance = 1000.00;
         double previousBalance = 0;
         double newBalance;
         double nextBalance;

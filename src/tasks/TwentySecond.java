@@ -8,12 +8,13 @@ public class TwentySecond {
 //    Number of squares: 5
 //    Expected perimeter is 80
 
-    public static int perimeter(final int numberOfSquares) {
+    public static String perimeter(final int numberOfSquares) {
         int perimeter = 0;
+        if (numberOfSquares<=0) return "Number of squares should be positive number!";
         for (int i = 0; i <= numberOfSquares + 1; i++) {
             perimeter += 4 * fib(i);
         }
-        return perimeter;
+        return "The perimeter of squares in a rectangle =  " + perimeter;
     }
 
     static int fib(int n) {

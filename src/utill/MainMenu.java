@@ -4,7 +4,6 @@ import tasks.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
-
 import static tasks.Ninth.divideBy;
 
 public class MainMenu {
@@ -28,7 +27,7 @@ public class MainMenu {
                     double width = ReadFromConsole.getParametersForVolume();
                     System.out.println("Bob, please, enter the height of cuboid:");
                     double height = ReadFromConsole.getParametersForVolume();
-                    System.out.println("The volume of the cuboid = " + Second.getVolume(length, width, height));
+                    System.out.println("The volume of the cuboid is " + Second.getVolume(length, width, height));
                 }
                 case (3) -> {
                     TasksDescriptions.THIRD.getDescription();
@@ -54,7 +53,7 @@ public class MainMenu {
                     TasksDescriptions.SIXTH.getDescription();
                     String str = ReadFromConsole.getStringToConvert();
                     System.out.println("The string number is \"" + str + "\"");
-                    System.out.println("The converted number is " + Sixth.conversion(str));
+                    System.out.println(Sixth.conversion(str));
                 }
                 case (7) -> {
                     TasksDescriptions.SEVENTH.getDescription();
@@ -82,20 +81,25 @@ public class MainMenu {
                 }
                 case (14) -> {
                     TasksDescriptions.FOURTEENTH.getDescription();
-                    String str = ReadFromConsole.getCheckBook();
-                    String[] values = Fourteenth.deleteRedundantSymbolsFromArr(Fourteenth.getElementsOfCheckBookFromUserInput(str));
-                    String[] checkAmounts = Fourteenth.createCheckAmountList(values);
-                    double[] doubleValues = Arrays.stream(checkAmounts)
-                            .mapToDouble(Double::parseDouble)
-                            .toArray();
-                    System.out.println(Fourteenth.getOriginalBalance());
-                    for (int i = 0; i < values.length; i++) {
-                        //  for (int j = 0; j < doubleValues.length; j++) {
-                        System.out.println((Fourteenth.deleteRedundantSymbolsFromArr(values))[i] + " "
-                                + ((Fourteenth.getNewBalance(doubleValues))[i]));
+                    try {
+                        double originalBalance = ReadFromConsole.getOriginalBalance();
+                        String str = ReadFromConsole.getCheckBook();
+                        String[] values = Fourteenth.deleteRedundantSymbolsFromArr(Fourteenth.getElementsOfCheckBookFromUserInput(str));
+                        String[] checkAmounts = Fourteenth.createCheckAmountList(values);
+                        double[] doubleValues = Arrays.stream(checkAmounts)
+                                .mapToDouble(Double::parseDouble)
+                                .toArray();
+                        System.out.println(Fourteenth.getOriginalBalance(originalBalance));
+                        for (int i = 0; i < values.length; i++) {
+                            //  for (int j = 0; j < doubleValues.length; j++) {
+                            System.out.println((Fourteenth.deleteRedundantSymbolsFromArr(values))[i] + " "
+                                    + ((Fourteenth.getNewBalance(doubleValues, originalBalance))[i]));
+                        }
+                        System.out.println(Fourteenth.calculateTotalAndAverageExpenses(doubleValues));
+                        System.out.println();
+                    } catch (NumberFormatException e) {
+                        System.out.println(e.getMessage() + "   Enter not empty string!");
                     }
-                    System.out.println(Fourteenth.calculateTotalAndAverageExpenses(doubleValues));
-                    System.out.println();
                 }
                 case (15) -> {
                     TasksDescriptions.FIFTEENTH.getDescription();
@@ -130,7 +134,7 @@ public class MainMenu {
                     String[] bookQuantities = Eighteenth.createListOfQuantities(stockListValues);
                     HashMap<String, Integer> pairs = Eighteenth.codeQuantityPairs(firstLettersFromStockList, bookQuantities);
                     System.out.print("Your result looks like:  ");
-                    Eighteenth.stockSummary(pairs, categoriesValues);
+                    System.out.println(Eighteenth.stockSummary(pairs,categoriesValues));
                     System.out.println();
                 }
                 case (19) -> {
@@ -147,8 +151,7 @@ public class MainMenu {
                 }
                 case (22) -> {
                     TasksDescriptions.TWENTYSECOND.getDescription();
-                    System.out.println("The perimeter of squares in a rectangle = "
-                            + TwentySecond.perimeter(ReadFromConsole.getNumberOfSquares()));
+                    System.out.println(TwentySecond.perimeter(ReadFromConsole.getNumberOfSquares()));
                 }
                 case (23) -> {
                     TasksDescriptions.TWENTYTHIRD.getDescription();
