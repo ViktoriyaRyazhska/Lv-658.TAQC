@@ -42,4 +42,10 @@ public class PerimeterSquaresTest {
         Mockito.when(reader.readLine()).thenReturn("-10",  null);
         PerimeterSquares.task(reader);
     }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData3() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("uyfg",  null);
+        PerimeterSquares.task(reader);
+    }
 }

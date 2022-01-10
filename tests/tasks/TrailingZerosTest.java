@@ -40,4 +40,10 @@ public class TrailingZerosTest {
         Mockito.when(reader.readLine()).thenReturn("-10",  null);
         TrailingZeros.task(reader);
     }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData3() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("uyfg",  null);
+        TrailingZeros.task(reader);
+    }
 }

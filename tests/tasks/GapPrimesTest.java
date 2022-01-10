@@ -45,4 +45,10 @@ public class GapPrimesTest {
         Mockito.when(reader.readLine()).thenReturn("100", "110", "0", null);
         GapPrimes.task(reader);
     }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData4() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("uyfg", "utfg", "jfgh",  null);
+        GapPrimes.task(reader);
+    }
 }
