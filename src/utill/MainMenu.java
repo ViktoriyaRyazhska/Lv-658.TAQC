@@ -31,7 +31,7 @@ public class MainMenu {
                 }
                 case (3) -> {
                     TasksDescriptions.THIRD.getDescription();
-                    System.out.println(Third.mpgToKPM(ReadFromConsole.getFloatNumber()));
+                    System.out.println(Third.mpgToKPM(ReadFromConsole.getPositiveFloatNumber()));
                 }
                 case (4) -> {
                     TasksDescriptions.FOURTH.getDescription();

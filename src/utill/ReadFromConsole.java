@@ -25,6 +25,17 @@ public class ReadFromConsole {
         }
         return number;
     }
+    public static float getPositiveFloatNumber() {
+        float number;
+        try {
+            number = Float.parseFloat(reader.readLine());
+            CustomException.validatePositive(number);
+        } catch (PositiveNumberException | NumberFormatException | IOException e ) {
+            System.out.println(e.getMessage() + "   Enter only positive numbers!");
+            number = getFloatNumber();
+        }
+        return number;
+    }
 
     public static float getFloatNumber() {
         float number;
