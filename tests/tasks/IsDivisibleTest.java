@@ -15,15 +15,12 @@ import static org.testng.Assert.*;
 
 public class IsDivisibleTest {
     @DataProvider
-    private Object[][] dataProvider(Method method) throws IOException {
-        return switch(method.getName()) {
-            default -> null;
-            case "divisibleByTest" -> new Object[][]{
-                    {new int[]{1, 1, 1, 1}, 1, new int[]{1, 1, 1, 1}},
-                    {new int[]{1, 1, 1, 1}, 2, new int[]{}},
-                    {new int[]{2, 1, 2, 1}, 2, new int[]{2, 2}},
-                    {new int[]{0, 1, 2, 3}, 3, new int[]{0, 3}}
-            };
+    private Object[][] dataProvider() {
+        return new Object[][]{
+                {new int[]{1, 1, 1, 1}, 1, new int[]{1, 1, 1, 1}},
+                {new int[]{1, 1, 1, 1}, 2, new int[]{}},
+                {new int[]{2, 1, 2, 1}, 2, new int[]{2, 2}},
+                {new int[]{0, 1, 2, 3}, 3, new int[]{0, 3}}
         };
     }
 
