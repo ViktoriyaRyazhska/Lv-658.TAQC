@@ -1,8 +1,13 @@
 package tasks;
 
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class RankingNBATest {
 
@@ -40,6 +45,22 @@ public class RankingNBATest {
 
     @Test(dataProvider = "Test-Data-for-NbaCup-NBA")
     public void testNbaCup(String resultSheet, String team, String expected) {
-       Assert.assertEquals(RankingNBA.getNbaCup(resultSheet, team), expected);
+        Assert.assertEquals(RankingNBA.getNbaCup(resultSheet, team), expected);
+    }
+
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
+
+    @DataProvider(name = "Test-Data-for-Task-NBA")
+    public Object[][] dataProviderTask() {
+        return new Object[][]{
+                {resultSheet3, "Boston Celtics", "Boston Celtics:W=4;D=0;L=0;Scored=403;Conceded=350;Points=12"},
+                {resultSheet3, "Boston Celt", "Boston Celt:This team didn't play!"}};
+    }
+
+    @Test(dataProvider = "Test-Data-for-Task-NBA")
+    public void testTask(String resultSheet, String team, String expected) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(resultSheet, team, null);
+        RankingNBA.task(reader);
     }
 }

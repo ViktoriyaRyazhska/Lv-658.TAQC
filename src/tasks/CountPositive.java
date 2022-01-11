@@ -29,14 +29,16 @@ public class CountPositive {
     }
 
     public static int[] getArrayOutput(int sizeOfArray, int[] array, int[] newArray) {
-    return arrayOutput(sizeOfArray,array,newArray);
+        return arrayOutput(sizeOfArray, array, newArray);
     }
+
     public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter size of an array:");
         int sizeOfArray = Integer.parseInt(br.readLine());
         if (sizeOfArray < 0) {
             throw new IllegalArgumentException("Only Positive Numbers!");
         }
+
         System.out.print("Please, enter array: ");
         int array[] = new int[sizeOfArray];
         arrayInput(br, sizeOfArray, array);
@@ -49,5 +51,4 @@ public class CountPositive {
         }
         System.out.println();
     }
-
 }

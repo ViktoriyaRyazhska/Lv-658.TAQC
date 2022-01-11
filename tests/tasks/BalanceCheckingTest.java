@@ -1,8 +1,14 @@
 package tasks;
 
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class BalanceCheckingTest {
 
@@ -47,5 +53,19 @@ public class BalanceCheckingTest {
     @Test(dataProvider = "Test-Data-for-Balance-BC")
     public void testBalanceBC(String input, String result) {
         Assert.assertEquals(BalanceChecking.getBalance(input), result);
+    }
+
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
+
+    @DataProvider(name = "Test-Data-for-Task-BC")
+    public Object[][] dataProviderTask(Method m) {
+        return new Object[][]{{-856}, {0}, {-15}};
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "Test-Data-for-Task-BC")
+    public void taskCountArgumentExceptionTest(int count) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(String.valueOf(count), null);
+        BalanceChecking.task(reader);
     }
 }
