@@ -58,9 +58,9 @@ public class RankingNBATest {
                 {resultSheet3, "Boston Celt", "Boston Celt:This team didn't play!"}};
     }
 
-    @Test(dataProvider = "Test-Data-for-NbaCup-NBA")
+    @Test(dataProvider = "Test-Data-for-Task-NBA")
     public void testTask(String resultSheet, String team, String expected) throws IOException {
-        Mockito.when(reader.readLine()).thenReturn(resultSheet, team, expected, null);
+        Mockito.when(reader.readLine()).thenReturn(resultSheet, team, null);
         RankingNBA.task(reader);
     }
 }
