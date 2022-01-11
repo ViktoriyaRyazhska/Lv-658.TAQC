@@ -15,9 +15,9 @@ public class SumOfTermTest {
     @DataProvider
     private Object[][] dataProvider() {
         return new Object[][]{
-                {0, "0,00"},
-                {15, "1,94"},
-                {9, "1,77"}
+                {0, "0.00"},
+                {15, "1.94"},
+                {9, "1.77"}
         };
     }
 
