@@ -80,6 +80,4 @@ public class WillsonPrimesTest {
 
         WillsonPrimes.task(reader);
     }
-
-
 }
