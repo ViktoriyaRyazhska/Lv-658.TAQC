@@ -22,7 +22,7 @@ public class SquareRootTest {
         return new Object[][]{{0}, {1}, {4}, {9}};
     }
     @DataProvider(name = "ProviderArrayOutputTest")
-    public Object[][] dparrayOutputTest() {
+    public Object[][] dpArrayOutputTest() {
         int[] input = new int[] { 4, 3, 9, 7, 2, 1 };
         int[] expected = new int[] { 2, 9, 3, 49, 4, 1 };
         int[]  input2 = new int[] { 100, 101, 5, 5, 1, 1 };
