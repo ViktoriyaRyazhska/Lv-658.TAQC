@@ -26,7 +26,7 @@ public class WillsonPrimes {
     }
 
     private static boolean isWilson(int n) {
-        return isPrime(n) || (factorial(n - 1) + 1) % n * n == 0;
+        return isPrime(n) && (factorial(n - 1) + 1) % ((long) n * n ) == 0;
     }
 
     public static boolean getIsWilson(int n) {
@@ -45,7 +45,7 @@ public class WillsonPrimes {
         System.out.println("Please, enter the number:");
 
         int number = Integer.parseInt(br.readLine());
-        if (number < 0) {
+        if (number <= 0) {
             throw new IllegalArgumentException("Error.. number must be positive, you entered negative");
         }
         boolean resIsWilson = isWilson(number);

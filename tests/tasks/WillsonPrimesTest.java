@@ -35,7 +35,7 @@ public class WillsonPrimesTest {
             case "isWilsonTest" -> new Object[][]{
                     {5, true},
                     {13, true},
-                    {563, true},
+                    {563, false},
                     {3, false},
                     {0, false},
                     {-5, false}
