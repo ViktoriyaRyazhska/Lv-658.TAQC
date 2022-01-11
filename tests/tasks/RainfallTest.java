@@ -1,10 +1,12 @@
 package tasks;
 
-import org.testng.Assert;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.lang.reflect.Method;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
@@ -32,8 +34,8 @@ public class RainfallTest {
                     "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
 
     private static void assertFuzzyEquals(double actual, double expected) {
-        boolean inrange = Math.abs(actual - expected) <= 1e-2;
-        if (inrange == false) {
+        boolean inRange = Math.abs(actual - expected) <= 1e-2;
+        if (inRange == false) {
             System.out.println("abs(actual - expected) must be <= 1e-2. Expected was " + expected + ", but got " + actual);
         }
         assertEquals(expected, actual, 1e-2);
@@ -63,26 +65,28 @@ public class RainfallTest {
         assertFuzzyEquals(Rainfall.getVariance(town, data), expected);
     }
 
-    @DataProvider(name = "Test-Data-for-Validate-R")
-    public Object[][] testValidateR(Method m) {
-        switch (m.getName()) {
-            case "validateTrueTest":
-                return new Object[][]{{"rome"}, {"Paris"}, {"LONDON"}};
-            case "validateFalseTest":
-                return new Object[][]{{"LVIV"}, {"Paris*_*"}, {"1.2"}};
-        }
-        return null;
-    }
-/*
-    @Test(dataProvider = "Test-Data-for-Validate-R")
-    void validateTrueTest(String val) {
-        Assert.assertTrue(Rainfall.getValidate(val));
+    @DataProvider(name = "Test-Data-for-Task-R")
+    public Object[][] dataProviderTask() {
+        return new Object[][]{{"Rome"}, {"Paris"}, {"London"}};
     }
 
-    @Test(dataProvider = "Test-Data-for-Validate-R")
-    void validateFalseTest(String val) {
-        Assert.assertFalse(Rainfall.getValidate(val));
+    @Test(dataProvider = "Test-Data-for-Task-R")
+    public void taskTest(String town) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(town, null);
+        Rainfall.task(reader);
     }
 
- */
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
+
+    @DataProvider(name = "Test-Data-for-TaskEx-R")
+    public Object[][] dataProviderTaskIllegalException() {
+        return new Object[][]{{"LVIV"}, {"Paris*_*"}, {"1.2"}};
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "Test-Data-for-TaskEx-R")
+    public void taskIllegalExceptionTest(String town) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(town, null);
+        Rainfall.task(reader);
+    }
 }
