@@ -25,6 +25,17 @@ public class ReadFromConsole {
         }
         return number;
     }
+    public static float getPositiveFloatNumber() {
+        float number;
+        try {
+            number = Float.parseFloat(reader.readLine());
+            CustomException.validatePositive(number);
+        } catch (PositiveNumberException | NumberFormatException | IOException e ) {
+            System.out.println(e.getMessage() + "   Enter only positive numbers!");
+            number = getFloatNumber();
+        }
+        return number;
+    }
 
     public static float getFloatNumber() {
         float number;
@@ -129,15 +140,18 @@ public class ReadFromConsole {
             numb = ReadFromConsole.getIntNumber();
 
             switch (numb) {
-                case (1) -> weather[i] = WeatherConditions.getConditions()[0].toString();
-                case (2) -> weather[i] = WeatherConditions.getConditions()[1].toString();
-                case (3) -> weather[i] = WeatherConditions.getConditions()[2].toString();
-                case (4) -> weather[i] = WeatherConditions.getConditions()[3].toString();
-                case (5) -> weather[i] = WeatherConditions.getConditions()[4].toString();
-                case (6) -> weather[i] = WeatherConditions.getConditions()[5].toString();
-                case (7) -> weather[i] = WeatherConditions.getConditions()[6].toString();
-                default -> System.out.println("Incorrect input!");
-            }
+                case (0) -> weather[i] = WeatherConditions.getConditions()[0].toString();
+                case (1) -> weather[i] = WeatherConditions.getConditions()[1].toString();
+                case (2) -> weather[i] = WeatherConditions.getConditions()[2].toString();
+                case (3) -> weather[i] = WeatherConditions.getConditions()[3].toString();
+                case (4) -> weather[i] = WeatherConditions.getConditions()[4].toString();
+                case (5) -> weather[i] = WeatherConditions.getConditions()[5].toString();
+                case (6) -> weather[i] = WeatherConditions.getConditions()[6].toString();
+                default -> {
+                    System.out.println("Incorrect input!");
+                    i--;
+                }
+                }
 
         }
         for (String el : weather) {

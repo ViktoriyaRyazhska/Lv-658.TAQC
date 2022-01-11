@@ -1,7 +1,5 @@
 package tasks;
 
-
-import utill.ReadFromConsole;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +18,9 @@ public class Nineteenth {
                 }
             }
         }
-        return Math.abs(homeCounter - workCounter);
+        if (homeCounter == workCounter && homeCounter != 0) {
+            return 1;
+        } else
+            return Math.abs(homeCounter - workCounter);
     }
 }
