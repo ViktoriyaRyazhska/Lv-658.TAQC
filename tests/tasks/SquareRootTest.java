@@ -43,7 +43,7 @@ public class SquareRootTest {
         return new Object[][]{{6,line},{6,line2},{6,line3}};
     }
     @DataProvider(name = "ProviderTaskArrayOutputTest")
-    public Object[][] dpArrayOutputTest() {
+    public Object[][] dptaskArrayOutputTest() {
         String line4 = "4\n3\n9\n7\n2\n1";
         String line5 = "2\n3\n1\n1\n2\n4";
         String line6 = "2\n11\n13\n3\n9\n5";
