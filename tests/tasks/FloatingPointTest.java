@@ -1,8 +1,13 @@
 package tasks;
 
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class FloatingPointTest {
 
@@ -27,11 +32,13 @@ public class FloatingPointTest {
                 {-1566},
                 {0}};
     }
-/*
-    @Test(dataProvider = "Test-Data-for-Validate-FP")
-    public void testPositiveValidateFP(double input) {
-        Assert.assertFalse(FloatingPoint.getValidate(input));
-    }
 
- */
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
+
+    @Test(expectedExceptions = IllegalArgumentException.class, dataProvider = "Test-Data-for-Validate-FP")
+    void taskIllegalArgumentExceptionXTest(int x) throws IOException {
+        Mockito.when(reader.readLine()).thenReturn(String.valueOf(x), null);
+        FloatingPoint.task(reader);
+    }
 }
