@@ -12,12 +12,8 @@ import java.lang.reflect.Method;
 
 public class GapPrimesTest {
     @DataProvider(name = "dataProvider")
-    public Object[][] dpMethod(Method m){
-        switch (m.getName()) {
-            case "outputTest":
+    public Object[][] dpMethod(){
                 return new Object[][] {{100,110,2,"Result: [101, 103]"},{100,110,4,"Result: [103, 107]"}, {100,103,2, "Result: [101, 103]"}, {300,400,8, "Result: [359, 367]"}, {300,400,10, "Result: [337, 347]"}};
-        }
-        return null;
     }
 
     @Mock

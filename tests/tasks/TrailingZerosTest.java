@@ -13,12 +13,8 @@ import java.lang.reflect.Method;
 public class TrailingZerosTest {
 
     @DataProvider(name = "dataProvider")
-    public Object[][] dpMethod(Method m){
-        switch (m.getName()) {
-            case "findZerosTest":
+    public Object[][] dpMethod(){
                 return new Object[][] {{5,1}, {12,2}, {25,6},{531,131}};
-        }
-        return null;
     }
 
     @Mock

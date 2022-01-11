@@ -15,12 +15,8 @@ import static org.testng.Assert.*;
 public class PerimeterSquaresTest {
 
     @DataProvider(name = "dataProvider")
-    public Object[][] dpMethod(Method m){
-        switch (m.getName()) {
-            case "outputTest":
-                return new Object[][] {{5,"Result:80"}, {7,"Result:216"}};
-        }
-        return null;
+    public Object[][] dpMethod(){
+        return new Object[][] {{5,"Result:80"}, {7,"Result:216"}};
     }
 
     @Mock
