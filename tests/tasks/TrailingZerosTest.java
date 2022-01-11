@@ -1,9 +1,13 @@
 package tasks;
 
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class TrailingZerosTest {
@@ -13,25 +17,33 @@ public class TrailingZerosTest {
         switch (m.getName()) {
             case "findZerosTest":
                 return new Object[][] {{5,1}, {12,2}, {25,6},{531,131}};
-            case "validatePositiveTest":
-                return new Object[][] {{5}, {25},{531}};
-            case "validateNegativeTest":
-                return new Object[][] {{-5}, {-25},{0}};
         }
         return null;
     }
+
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
+
     @Test(dataProvider = "dataProvider")
     public void findZerosTest(int number, int res) {
         Assert.assertEquals(TrailingZeros.getFindZeros(number),res);
     }
-    @Test(dataProvider = "dataProvider")
-    public void validatePositiveTest(int number) {
-        Assert.assertTrue(TrailingZeros.getValidate(number));
-    }
-    @Test(dataProvider = "dataProvider")
-    public void validateNegativeTest(int number) {
-        Assert.assertFalse(TrailingZeros.getValidate(number));
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData1() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("0",  null);
+        TrailingZeros.task(reader);
     }
 
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData2() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("-10",  null);
+        TrailingZeros.task(reader);
+    }
 
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData3() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("uyfg",  null);
+        TrailingZeros.task(reader);
+    }
 }

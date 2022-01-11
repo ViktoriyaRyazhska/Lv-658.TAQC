@@ -51,13 +51,11 @@ public class BalanceChecking {
         return balance(str);
     }
 
-    public static void task(BufferedReader br) {
+    public static void task(BufferedReader br) throws IOException, IllegalArgumentException, StringIndexOutOfBoundsException, ArrayIndexOutOfBoundsException {
         System.out.println("How much purchases are in check book?");
-        try {
             int count = Integer.parseInt(br.readLine());
-            if (count < 0) {
-                System.out.println("Count can't be <= 0");
-                count = Integer.parseInt(br.readLine());
+            if (count <= 0) {
+                throw new IllegalArgumentException("Count can't be <= 0");
             }
             System.out.println("Please, enter the check book:");
             StringBuilder check = new StringBuilder();
@@ -69,13 +67,6 @@ public class BalanceChecking {
             }
             String check1 = check.toString();
             System.out.println("\n--- Your balance ---\n" + balance(check1));
-        } catch (IOException e) {
-            System.out.println("Error.. try again");
-            task(br);
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println("Error.. Input isn't in good format!");
-            task(br);
-        }
     }
 }
 //1000.00\n125 Market 125.45\n126 Hardware 34.95\n127 Video 7.45\n128 Book 14.32\n129 Gasoline 16.10

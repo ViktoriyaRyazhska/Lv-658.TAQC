@@ -73,7 +73,7 @@ public class RainfallTest {
         }
         return null;
     }
-
+/*
     @Test(dataProvider = "Test-Data-for-Validate-R")
     void validateTrueTest(String val) {
         Assert.assertTrue(Rainfall.getValidate(val));
@@ -83,4 +83,6 @@ public class RainfallTest {
     void validateFalseTest(String val) {
         Assert.assertFalse(Rainfall.getValidate(val));
     }
+
+ */
 }

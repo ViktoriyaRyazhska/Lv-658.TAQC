@@ -1,9 +1,13 @@
 package tasks;
 
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 import static org.testng.Assert.*;
@@ -15,26 +19,33 @@ public class PerimeterSquaresTest {
         switch (m.getName()) {
             case "outputTest":
                 return new Object[][] {{5,"Result:80"}, {7,"Result:216"}};
-            case "validatePositiveTest":
-                return new Object[][] {{5}, {7},{531}};
-            case "validateNegativeTest":
-                return new Object[][] {{-5}, {-7},{0}};
         }
         return null;
     }
+
+    @Mock
+    BufferedReader reader = Mockito.mock(BufferedReader.class);
 
     @Test(dataProvider = "dataProvider")
     public void outputTest(int number, String res) {
         Assert.assertEquals(PerimeterSquares.getOutput(number),res);
     }
 
-    @Test(dataProvider = "dataProvider")
-    public void validatePositiveTest(int number) {
-        Assert.assertTrue(PerimeterSquares.getValidate(number));
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData1() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("0",  null);
+        PerimeterSquares.task(reader);
     }
 
-    @Test(dataProvider = "dataProvider")
-    public void validateNegativeTest(int number) {
-        Assert.assertFalse(PerimeterSquares.getValidate(number));
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData2() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("-10",  null);
+        PerimeterSquares.task(reader);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void incorrectData3() throws IOException {
+        Mockito.when(reader.readLine()).thenReturn("uyfg",  null);
+        PerimeterSquares.task(reader);
     }
 }
