@@ -8,17 +8,15 @@ public class LookingBenefactor {
     private static Double expectedAmountOfMoney(double[] arr, double averageAmountDonations) {
         return averageAmountDonations * (arr.length + 1) - Arrays.stream(arr).sum();
     }
-    private static double[] arrayInput(BufferedReader br, int sizeOfArray, double[] array) throws IOException {
+    private static void arrayInput(BufferedReader br, int sizeOfArray, double[] array) throws IOException {
         for (int i = 0; i < sizeOfArray; i++) {
             array[i] = Double.parseDouble(br.readLine());
         }
-        return array;
     }
 
     public static Double getExpectedAmountOfMoney(double[] arr, double averageAmountDonations) {
         return expectedAmountOfMoney(arr, averageAmountDonations);
     }
-
 
     public static void task(BufferedReader br) throws IOException {
         System.out.println("Please, enter the quantity of donations: ");
