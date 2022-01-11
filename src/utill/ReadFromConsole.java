@@ -149,7 +149,7 @@ public class ReadFromConsole {
                 case (6) -> weather[i] = WeatherConditions.getConditions()[6].toString();
                 default -> {
                     System.out.println("Incorrect input!");
-                    numb = ReadFromConsole.getIntNumber();
+                    i--;
                 }
                 }
 
